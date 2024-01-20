@@ -169,20 +169,23 @@
         var sealsPopup = document.getElementById("myPopup");
         var sealsClosePopup = document.getElementById("sealsClosePopup");
         var sealsSubmitButton = document.getElementById("sealsSubmitButton");
+        var sealsPopup = document.getElementById("MyPopup");
+        var sealsClosePopup = document.getElementById("closePopup");
+        var sealsSubmitButton = document.getElementById("submitButton");
         var sealsUserInput = document.getElementById("sealsUser");
-        var sealsResultMessageElement = document.getElementById("sealsResultMessage");
+        var sealsResultMessageElement = document.getElementById("ResultMessage");
 
         sealsButton.addEventListener("click", function () {
-            sealsPopup.classList.add("show");
+            myPopup.classList.add("show");
         });
 
         sealsClosePopup.addEventListener("click", function () {
-            sealsPopup.classList.remove("show");
+            myPopup.classList.remove("show");
         });
 
         sealsPopup.addEventListener("click", function (event) {
-            if (event.target == sealsPopup) {
-                sealsPopup.classList.remove("show");
+            if (event.target == myPopup) {
+                myPopup.classList.remove("show");
             }
         });
 
