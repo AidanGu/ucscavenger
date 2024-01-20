@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UCscavenger</title>
+    <title>UCSCAVENGERS - Unleashing Creativity</title>
     <!-- Additional head elements (stylesheets, scripts, etc.) can be added here -->
     <style>
         body {
@@ -14,8 +14,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
             background: linear-gradient(to bottom, rgba(52, 152, 219, 0.5), #fff);
         }
 
@@ -24,25 +22,37 @@
             color: #fff;
             text-align: center;
             padding: 50px;
-            margin-bottom: 20px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         main {
             padding: 20px;
             text-align: center;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         section {
             margin-bottom: 30px;
-            border-bottom: 2px solid #3498db;
             padding-bottom: 20px;
+        }
+
+        .creators {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
         }
 
         .creator {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 20px;
+            margin: 10px;
+            padding: 10px;
+            border: 2px solid #3498db;
+            border-radius: 50%;
+            background: #fff;
         }
 
         .creator img {
@@ -58,8 +68,6 @@
             color: #fff;
             text-align: center;
             padding: 10px;
-            position: fixed;
-            bottom: 0;
             width: 100%;
         }
     </style>
@@ -68,7 +76,7 @@
 
     <!-- Header Section -->
     <header>
-        <h1 style="font-size: 3em;">UCscavenger</h1>
+        <h1 style="font-size: 3em;">UCSCAVENGERS</h1>
     </header>
 
     <!-- Main Content Section -->
@@ -89,31 +97,34 @@
         <!-- Creator Section -->
         <section>
             <h2>Meet the Creators</h2>
-            <p>Our community is made up of diverse and talented individuals who contribute their skills and passion to make UCSCAVENGERS a vibrant space for creativity. Get to know the faces behind the creations.</p>
-    
-            <!-- Creator 1 -->
-            <div class="creator">
-                <img src="placeholder1.jpg" alt="Creator 1">
-                <p>Creator 1</p>
-            </div>
+            
+            <!-- Creator Bubbles -->
+            <div class="creators">
+                <!-- Creator 1 -->
+                <div class="creator">
+                    <img src="placeholder1.jpg" alt="Creator 1">
+                    <p>Creator 1</p>
+                </div>
 
-            <!-- Creator 2 -->
-            <div class="creator">
-                <img src="placeholder2.jpg" alt="Creator 2">
-                <p>Creator 2</p>
-            </div>
+                <!-- Creator 2 -->
+                <div class="creator">
+                    <img src="placeholder2.jpg" alt="Creator 2">
+                    <p>Creator 2</p>
+                </div>
 
-            <!-- Creator 3 -->
-            <div class="creator">
-                <img src="placeholder3.jpg" alt="Creator 3">
-                <p>Creator 3</p>
+                <!-- Creator 3 -->
+                <div class="creator">
+                    <img src="placeholder3.jpg" alt="Creator 3">
+                    <p>Creator 3</p>
+                </div>
             </div>
         </section>
+
     </main>
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; 2024 UCSCAVENGER. All rights reserved.</p>
+        <p>&copy; 2024 UCSCAVENGERS. All rights reserved.</p>
     </footer>
 
 </body>
