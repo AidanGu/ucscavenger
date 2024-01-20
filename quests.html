@@ -84,6 +84,8 @@
 
     <h1 style="text-align: center;">Quests</h1>
 
+    
+    
     <!-- Koi Pond Section -->
     <h1>Porter</h1>
     <button id="koiButton">
@@ -142,8 +144,11 @@
         });
     </script>
 
+    
+
+
     <!-- Seals Sculpture Section -->
-    <h1>Seals Sculpture</h1>
+    <h1>Science Hill</h1>
     <button id="sealsButton">
         Find the Seals Sculpture
     </button>
@@ -195,6 +200,65 @@
                 setTimeout(function () {
                     sealsPopup.classList.remove("show");
                     sealsResultMessageElement.textContent = "";
+                }, 3000);
+            }
+        });
+        </script>
+
+
+    <!-- Baskin Section -->
+    <h1>Baskin Engineering</h1>
+    <button id="baskinButton">
+        Find the Maker's Space
+    </button>
+    <div id="baskinPopup" class="popup">
+        <div class="popup-content">
+            <h1 style="color:green;">Maker's Space</h1>
+            <p>What's written on the flag hanging in the Maker's Space?</p>
+            <input type="text" id="baskinUser" size="30">
+            <button id="baskinSubmitButton">Submit</button>
+            <button id="baskinClosePopup">Close</button>
+            <div id="baskinResultMessage" style="font-size: 24px; margin-top: 10px;"></div>
+        </div>
+    </div>
+
+    <script>
+        var baskinButton = document.getElementById("baskinButton");
+        var baskinPopup = document.getElementById("baskinPopup");
+        var baskinClosePopup = document.getElementById("baskinClosePopup");
+        var baskinSubmitButton = document.getElementById("baskinSubmitButton");
+        var baskinUserInput = document.getElementById("baskinUser");
+        var baskinResultMessageElement = document.getElementById("baskinResultMessage");
+
+        baskinButton.addEventListener("click", function () {
+            baskinPopup.classList.add("show");
+        });
+
+        baskinClosePopup.addEventListener("click", function () {
+            baskinPopup.classList.remove("show");
+        });
+
+        baskinPopup.addEventListener("click", function (event) {
+            if (event.target == baskinPopup) {
+                baskinPopup.classList.remove("show");
+            }
+        });
+
+        baskinSubmitButton.addEventListener("click", function () {
+            var userInputValue = baskinUserInput.value;
+            var specificValue = "we do this not because it is easy, but because we thought it would be easy";
+
+            var isSame = userInputValue.toLowerCase() === specificValue.toLowerCase();
+
+            baskinResultMessageElement.textContent = isSame ? "Quest Completed" : "Incorrect, please try again";
+            if (isSame) {
+                baskinButton.disabled = true;
+            }
+
+            if (isSame) {
+                setTimeout(function () {
+                    baskinPopup.classList.remove("show");
+                    baskinResultMessageElement.textContent = "";
                 }, 3000);
             }
         });
