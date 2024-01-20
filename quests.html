@@ -25,23 +25,42 @@
             font-weight: bold;
         }
 
-        #map, iframe {
-            width: 100%;
-            height: 100vh; /* 100% of the viewport height */
-        }
+        #popup-window {
+            position: fixed;
+            width: 300px;
+            height: 200px;
+            background: white;
+            border: 1px solid black;
+            padding: 10px;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 10;
+            display: none;
+        } 
     </style>
 </head>
 <body>
+
     <header>
         <a href="index.html">Home</a>
         <a href="map.html">Map</a>
+        <a href="profile.html">Quests</a>
         <a href="profile.html">Profile</a>
         <a href="settings.html">Settings</a>
     </header>
 
     <!-- Your page content goes here -->
     <h1 style="text-align: center;">Quests</h1>
-    
-    <div id="map"></div>
+
+    <div id="popup-window">
+        <h1>Koi Pond</h1>
+        <p>What is inscribed on the plaque on the koi pond?</p>
+        <input type="text" id="koiPondUser" size="30">
+        <button id="submit-button">Submit</button>
+        <button id="close-button">Close</button>
+      </div>
 </body>
 </html>
