@@ -84,44 +84,39 @@
 
     <h1 style="text-align: center;">Quests</h1>
 
+    <!-- Koi Pond Section -->
     <h1>Porter</h1>
-    
-    <button id="myButton">
+    <button id="koiButton">
         Visit the Koi Pond!
     </button>
-
-
-
-    
-    <div id="myPopup" class="popup">
+    <div id="koiPopup" class="popup">
         <div class="popup-content">
             <h1 style="color:green;">Koi Pond</h1>
             <p>What's on the plaque?</p>
             <input type="text" id="koiPondUser" size="30">
-            <button id="submitButton">Submit</button>
-            <button id="closePopup">Close</button>
-            <div id="resultMessage" style="font-size: 24px; margin-top: 10px;"></div>
+            <button id="koiSubmitButton">Submit</button>
+            <button id="koiClosePopup">Close</button>
+            <div id="koiResultMessage" style="font-size: 24px; margin-top: 10px;"></div>
         </div>
     </div>
-    
+
     <script>
-        var koiButton = document.getElementById("myButton");
-        var koiPopup = document.getElementById("myPopup");
-        var koiClosePopup = document.getElementById("closePopup");
-        var koiSubmitButton = document.getElementById("submitButton");
-        var koiPondUserInput = document.getElementById("koiPondUser"); 
-        var koiresultMessageElement = document.getElementById("resultMessage");
+        var koiButton = document.getElementById("koiButton");
+        var koiPopup = document.getElementById("koiPopup");
+        var koiClosePopup = document.getElementById("koiClosePopup");
+        var koiSubmitButton = document.getElementById("koiSubmitButton");
+        var koiPondUserInput = document.getElementById("koiPondUser");
+        var koiResultMessageElement = document.getElementById("koiResultMessage");
 
-
-    
         koiButton.addEventListener("click", function () {
             koiPopup.classList.add("show");
         });
+
         koiClosePopup.addEventListener("click", function () {
             koiPopup.classList.remove("show");
         });
 
-        koiPopup.addEventListener("click", function (event) {  
+        koiPopup.addEventListener("click", function (event) {
             if (event.target == koiPopup) {
                 koiPopup.classList.remove("show");
             }
@@ -129,32 +124,31 @@
 
         koiSubmitButton.addEventListener("click", function () {
             var userInputValue = koiPondUserInput.value;
-            var specificValue = "fish"; 
-            
+            var specificValue = "fish";
+
             var isSame = userInputValue.toLowerCase() === specificValue.toLowerCase();
 
-   
-            koiresultMessageElement.textContent = isSame ? "Quest Completed" : "Incorrect, please try again";
+            koiResultMessageElement.textContent = isSame ? "Quest Completed" : "Incorrect, please try again";
             if (isSame) {
                 koiButton.disabled = true;
             }
 
-            
             if (isSame) {
-                setTimeout(function() {
+                setTimeout(function () {
                     koiPopup.classList.remove("show");
-                    koiresultMessageElement.textContent = ""; 
+                    koiResultMessageElement.textContent = "";
                 }, 3000);
             }
         });
     </script>
 
+    <!-- Seals Sculpture Section -->
     <h1>Seals Sculpture</h1>
     <button id="sealsButton">
         Find the Seals Sculpture
     </button>
     <div id="sealsPopup" class="popup">
-        <div class="seals-content">
+        <div class="popup-content">
             <h1 style="color:green;">Seals Sculpture</h1>
             <p>What's on the plaque?</p>
             <input type="text" id="sealsUser" size="30">
@@ -165,52 +159,45 @@
     </div>
 
     <script>
-        var sealsButton = document.getElementById("MyButton");
-        var sealsPopup = document.getElementById("myPopup");
+        var sealsButton = document.getElementById("sealsButton");
+        var sealsPopup = document.getElementById("sealsPopup");
         var sealsClosePopup = document.getElementById("sealsClosePopup");
         var sealsSubmitButton = document.getElementById("sealsSubmitButton");
-        var sealsPopup = document.getElementById("MyPopup");
-        var sealsClosePopup = document.getElementById("closePopup");
-        var sealsSubmitButton = document.getElementById("submitButton");
         var sealsUserInput = document.getElementById("sealsUser");
-        var sealsResultMessageElement = document.getElementById("ResultMessage");
+        var sealsResultMessageElement = document.getElementById("sealsResultMessage");
 
         sealsButton.addEventListener("click", function () {
-            myPopup.classList.add("show");
+            sealsPopup.classList.add("show");
         });
 
         sealsClosePopup.addEventListener("click", function () {
-            myPopup.classList.remove("show");
+            sealsPopup.classList.remove("show");
         });
 
         sealsPopup.addEventListener("click", function (event) {
-            if (event.target == myPopup) {
-                myPopup.classList.remove("show");
+            if (event.target == sealsPopup) {
+                sealsPopup.classList.remove("show");
             }
         });
 
         sealsSubmitButton.addEventListener("click", function () {
             var userInputValue = sealsUserInput.value;
-            var specificValue = "seals"; // Replace with your specific value
+            var specificValue = "seals";
 
-            // Check if the user input is the same as the specific value
             var isSame = userInputValue.toLowerCase() === specificValue.toLowerCase();
 
-            // Display the result on the screen
             sealsResultMessageElement.textContent = isSame ? "Quest Completed" : "Incorrect, please try again";
             if (isSame) {
                 sealsButton.disabled = true;
             }
 
-            // Close the popup (you can adjust this based on your requirements)
             if (isSame) {
                 setTimeout(function () {
                     sealsPopup.classList.remove("show");
-                    sealsResultMessageElement.textContent = ""; // Clear the result after a delay
+                    sealsResultMessageElement.textContent = "";
                 }, 3000);
             }
         });
-    </script>
-
+        </script>
 </body>
 </html>
