@@ -89,8 +89,8 @@
     <button id="koiPondButton">
         Find the Koi Pond
     </button>
-    <div id="myPopup" class="popup">
-        <div class="popup-content">
+    <div id="koiPopup" class="popup">
+        <div class="koi-content">
             <h1 style="color:green;">Koi Pond</h1>
             <p>What's on the plaque?</p>
             <input type="text" id="koiPondUser" size="30">
@@ -102,23 +102,23 @@
     
     <script>
         var koiPondButton = document.getElementById("koiPondButton");
-        var myPopup = document.getElementById("myPopup");
+        var koiPopup = document.getElementById("myPopup");
         var closePopup = document.getElementById("closePopup");
         var submitButton = document.getElementById("submitButton");
         var koiPondUserInput = document.getElementById("koiPondUser");
         var resultMessageElement = document.getElementById("resultMessage");
     
-        myButton.addEventListener("click", function () {
-            myPopup.classList.add("show");
+        koiButton.addEventListener("click", function () {
+            koiPopup.classList.add("show");
         });
     
         closePopup.addEventListener("click", function () {
-            myPopup.classList.remove("show");
+            koiPopup.classList.remove("show");
         });
     
         window.addEventListener("click", function (event) {
-            if (event.target == myPopup) {
-                myPopup.classList.remove("show");
+            if (event.target == koiPopup) {
+                koiPopup.classList.remove("show");
             }
         });
     
@@ -139,7 +139,7 @@
             // Close the popup (you can adjust this based on your requirements)
             if (isSame) {
                 setTimeout(function() {
-                    myPopup.classList.remove("show");
+                    koiPopup.classList.remove("show");
                     resultMessageElement.textContent = ""; // Clear the result after a delay
                 }, 3000); // Adjust the delay as needed (in milliseconds)
             }
@@ -150,8 +150,8 @@
     <button id="sealsButton">
         Find the Seals Sculpture
     </button>
-    <div id="myPopup" class="popup">
-        <div class="popup-content">
+    <div id="sealsPopup" class="popup">
+        <div class="seals-content">
             <h1 style="color:green;">Seals Sculpture</h1>
             <p>What's on the plaque?</p>
             <input type="text" id="sealsUser" size="30">
@@ -165,23 +165,23 @@
 
     <script>
         var sealsButton = document.getElementById("sealsButton");
-        var myPopup = document.getElementById("myPopup");
+        var sealsPopup = document.getElementById("sealsPopup");
         var closePopup = document.getElementById("closePopup");
         var submitButton = document.getElementById("submitButton");
-        var koiPondUserInput = document.getElementById("sealsUser");
+        var sealsInput = document.getElementById("sealsUser");
         var resultMessageElement = document.getElementById("resultMessage");
 
         sealsButton.addEventListener("click", function () {
-            myPopup.classList.add("show");
+            sealsPopup.classList.add("show");
         });
 
         closePopup.addEventListener("click", function () {
-            myPopup.classList.remove("show");
+            sealsPopup.classList.remove("show");
         });
 
         window.addEventListener("click", function (event) {
             if (event.target == myPopup) {
-                myPopup.classList.remove("show");
+                sealsPopup.classList.remove("show");
             }
         });
 
@@ -202,7 +202,7 @@
             // Close the popup (you can adjust this based on your requirements)
             if (isSame) {
                 setTimeout(function() {
-                    myPopup.classList.remove("show");
+                    sealsPopup.classList.remove("show");
                     resultMessageElement.textContent = ""; // Clear the result after a delay
                 }, 3000); // Adjust the delay as needed (in milliseconds)
             }
