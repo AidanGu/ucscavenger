@@ -122,7 +122,7 @@
             koiPopup.classList.remove("show");
         });
 
-        koiPopup.addEventListener("click", function (event) {  // Update this line
+        koiPopup.addEventListener("click", function (event) {  
             if (event.target == koiPopup) {
                 koiPopup.classList.remove("show");
             }
@@ -130,28 +130,27 @@
 
         koiSubmitButton.addEventListener("click", function () {
             var userInputValue = koiPondUserInput.value;
-            var specificValue = "fish"; // Replace with your specific value
-
-            // Check if the user input is the same as the specific value
+            var specificValue = "fish"; 
+            
             var isSame = userInputValue.toLowerCase() === specificValue.toLowerCase();
 
-            // Display the result on the screen
+   
             koiresultMessageElement.textContent = isSame ? "Quest Completed" : "Incorrect, please try again";
             if (isSame) {
                 koiButton.disabled = true;
             }
 
-            // Close the popup (you can adjust this based on your requirements)
+            
             if (isSame) {
                 setTimeout(function() {
                     koiPopup.classList.remove("show");
-                    koiresultMessageElement.textContent = ""; // Clear the result after a delay
+                    koiresultMessageElement.textContent = ""; 
                 }, 3000);
             }
         });
     </script>
 
-    // <!-- <h1>Science Hill</h1>
+     <!-- <h1>Science Hill</h1>
     // <button id="sealsButton">
     //     Find the Seals Sculpture
     // </button>
@@ -211,6 +210,6 @@
     //             <button id="close-button">Close</button>
     //         </div>
     //     </div> -->
-    // </script> 
+     </script> 
 </body>
 </html>
