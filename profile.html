@@ -25,6 +25,31 @@
             font-weight: bold;
         }
 
+        .slugs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+        }
+
+        .slug {
+            width: 120px; /* Adjust the width */
+            height: 120px; /* Adjust the height */
+            margin: 10px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .creator img {
+            width: 100%;
+            height: 100%;
+            object-fit: scale-down;
+        }
+
+        .creator p {
+            text-align: center;
+            margin-top: 5px;
+        }
+
     </style>
 </head>
 <body>
@@ -51,8 +76,46 @@
     <!-- Display saved profile name -->
     <div id="profile-name"></div>
     <div style="position: relative">
-        <img src="quarryPNG.png" alt="the" width="100" height="100" style="position: absolute; left: 60px; top: 300px">
+        
     </div>
+
+    <div class="slugs">
+        <!-- slug button 1 -->
+        <div class="slug">
+            <img src="defaultSLUG.png" alt="slug 1">
+            <p>Default Slug</p>
+        </div>
+
+        <!-- slug button 2 -->
+        <div class="slug">
+            <img src="pngbobross.png" alt="slug 2">
+            <p>Porter Slug</p>
+        </div>
+
+        <!-- slug button 3 -->
+        <div class="slug">
+            <img src="baskinPNG.png" alt="slug 3">
+            <p>Baskin Slug</p>
+        </div>
+
+        <!-- slug button 4 -->
+        <div class="slug">
+            <img src="quarryPNG.png" alt="slug 4">
+            <p>Central Campus Slug</p>
+        </div>
+
+        <!-- slug button 5 -->
+        <div class="slug">
+            <img src="tempSLUG.png" alt="slug 5">
+            <p>Science Hill Slug</p>
+        </div>
+
+        <!-- slug button 6 -->
+        <div class="slug">
+            <img src="masterSlug.png" alt="slug 6">
+            <p>Master Slug</p>
+        </div>
+        
     <script>
         // Function to save the entered name in a cookie
         function saveName() {
