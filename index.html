@@ -33,15 +33,15 @@
             font-weight: bold;
             margin-right: 20px;
             cursor: pointer;
-            font-size: 1.5em; /* Adjust the font size */
-            padding: 10px 20px; /* Adjust the padding */
+            font-size: 1.2em; /* Adjust the font size */
+            padding: 8px 15px; /* Adjust the padding */
         }
 
         header button {
             background-color: #3498db;
             color: #fff;
-            padding: 15px 30px;
-            font-size: 1.2em;
+            padding: 12px 20px; /* Adjust the padding */
+            font-size: 1em; /* Adjust the font size */
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -72,8 +72,8 @@
         }
 
         .creator {
-            width: 150px;
-            height: 150px;
+            width: 120px; /* Adjust the width */
+            height: 120px; /* Adjust the height */
             border-radius: 50%;
             margin: 10px;
             background: #fff;
@@ -101,7 +101,7 @@
         }
 
         .glow {
-            font-size: 80px;
+            font-size: 60px; /* Adjust the font size */
             color: rgb(0, 0, 0);
             text-align: center;
             -webkit-animation: glow 1s ease-in-out infinite alternate;
@@ -109,7 +109,7 @@
             animation: glow 1s ease-in-out infinite alternate;
         }
 
-            button.glow {
+        button.glow {
             animation: glow 1s ease-in-out infinite alternate;
         }
 
@@ -121,19 +121,33 @@
                 box-shadow: 0 0 20px rgba(0, 0, 0, 0);
             }
         }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            header a {
+                font-size: 1em;
+                padding: 8px 12px;
+            }
+
+            header button {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+
+            .glow {
+                font-size: 40px;
+            }
+        }
     </style>
 </head>
 <body>
-    <main>
     <!-- Header Section (Modified) -->
     <header>
-        <h1 style="font-size: 5em;">UCscavenger</h1>
         <h1 class="glow"><a href="your-other-page.html">GO TO MAP</a></h1>
     </header>
 
     <!-- Main Content Section -->
     <main>
-
         <!-- Bio Section -->
         <section>
             <h2>Bio</h2>
@@ -152,28 +166,26 @@
             <p>Our community is made up of diverse and talented individuals who contribute their skills and passion to make UCscavenger a vibrant space for creativity. Get to know the faces behind the creations.</p>
         </section>
             
-            <!-- Creator Circles -->
-            <div class="creators">
-                <!-- Creator 1 -->
-                <div class="creator">
-                    <img src="dog.jpg" alt="Creator 1">
-                    <p>Aidan</p>
-                </div>
-
-                <!-- Creator 2 -->
-                <div class="creator">
-                    <img src="dog.jpg" alt="Creator 2">
-                    <p>Eli</p>
-                </div>
-
-                <!-- Creator 3 -->
-                <div class="creator">
-                    <img src="dog.jpg" alt="Creator 3">
-                    <p>Hannah</p>
-                </div>
+        <!-- Creator Circles -->
+        <div class="creators">
+            <!-- Creator 1 -->
+            <div class="creator">
+                <img src="dog.jpg" alt="Creator 1">
+                <p>Aidan</p>
             </div>
-        </section>
 
+            <!-- Creator 2 -->
+            <div class="creator">
+                <img src="dog.jpg" alt="Creator 2">
+                <p>Eli</p>
+            </div>
+
+            <!-- Creator 3 -->
+            <div class="creator">
+                <img src="dog.jpg" alt="Creator 3">
+                <p>Hannah</p>
+            </div>
+        </div>
     </main>
 
     <!-- Footer Section -->
