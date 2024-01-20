@@ -87,38 +87,48 @@
     
     <h1>Porter</h1>
     
-    <button id="myButton">
-          Visit the Koi Pond!
-      </button>
-    <div id="myPopup" class="popup">
-        <div class="popup-content">
-            <h1 style="color:green;">
-                  Koi Pond
-              </h1>
-            <p>What's on the plaque?</p>
-            <input type="text" id="koiPondUser" size="30">
-            <button id = "submitButton">Submit</button>
-            <button id="closePopup">
-                  Close
-              </button>
-        </div>
+   <button id="myButton">
+    Visit the Koi Pond!
+</button>
+<div id="myPopup" class="popup">
+    <div class="popup-content">
+        <h1 style="color:green;">Koi Pond</h1>
+        <p>What's on the plaque?</p>
+        <input type="text" id="koiPondUser" size="30">
+        <button id="submitButton">Submit</button>
+        <button id="closePopup">Close</button>
     </div>
+</div>
 
+<script>
+    var myButton = document.getElementById("myButton");
+    var myPopup = document.getElementById("myPopup");
+    var closePopup = document.getElementById("closePopup");
+    var submitButton = document.getElementById("submitButton");
+    var koiPondUserInput = document.getElementById("koiPondUser");
 
+    myButton.addEventListener("click", function () {
+        myPopup.classList.add("show");
+    });
 
-    <script>
-        myButton.addEventListener("click", function () {
-            myPopup.classList.add("show");
-        });
-        closePopup.addEventListener("click", function () {
+    closePopup.addEventListener("click", function () {
+        myPopup.classList.remove("show");
+    });
+
+    window.addEventListener("click", function (event) {
+        if (event.target == myPopup) {
             myPopup.classList.remove("show");
-        });
-        window.addEventListener("click", function (event) {
-            if (event.target == myPopup) {
-                myPopup.classList.remove("show");
-            }
-        });
-    </script>
+        }
+    });
+
+    submitButton.addEventListener("click", function () {
+        var userInputValue = koiPondUserInput.value;
+        // Perform your desired action with the user input value
+        console.log("User input:", userInputValue);
+        // Close the popup
+        myPopup.classList.remove("show");
+    });
+</script>
 
 
 
