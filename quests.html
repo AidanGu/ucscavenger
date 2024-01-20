@@ -87,48 +87,54 @@
     
     <h1>Porter</h1>
     
-   <button id="myButton">
-    Visit the Koi Pond!
-</button>
-<div id="myPopup" class="popup">
-    <div class="popup-content">
-        <h1 style="color:green;">Koi Pond</h1>
-        <p>What's on the plaque?</p>
-        <input type="text" id="koiPondUser" size="30">
-        <button id="submitButton">Submit</button>
-        <button id="closePopup">Close</button>
+    <button id="myButton">
+        Visit the Koi Pond!
+    </button>
+    <div id="myPopup" class="popup">
+        <div class="popup-content">
+            <h1 style="color:green;">Koi Pond</h1>
+            <p>What's on the plaque?</p>
+            <input type="text" id="koiPondUser" size="30">
+            <button id="submitButton">Submit</button>
+            <button id="closePopup">Close</button>
+        </div>
     </div>
-</div>
-
-<script>
-    var myButton = document.getElementById("myButton");
-    var myPopup = document.getElementById("myPopup");
-    var closePopup = document.getElementById("closePopup");
-    var submitButton = document.getElementById("submitButton");
-    var koiPondUserInput = document.getElementById("koiPondUser");
-
-    myButton.addEventListener("click", function () {
-        myPopup.classList.add("show");
-    });
-
-    closePopup.addEventListener("click", function () {
-        myPopup.classList.remove("show");
-    });
-
-    window.addEventListener("click", function (event) {
-        if (event.target == myPopup) {
+    
+    <script>
+        var myButton = document.getElementById("myButton");
+        var myPopup = document.getElementById("myPopup");
+        var closePopup = document.getElementById("closePopup");
+        var submitButton = document.getElementById("submitButton");
+        var koiPondUserInput = document.getElementById("koiPondUser");
+    
+        myButton.addEventListener("click", function () {
+            myPopup.classList.add("show");
+        });
+    
+        closePopup.addEventListener("click", function () {
             myPopup.classList.remove("show");
-        }
-    });
-
-    submitButton.addEventListener("click", function () {
-        var userInputValue = koiPondUserInput.value;
-        // Perform your desired action with the user input value
-        console.log("User input:", userInputValue);
-        // Close the popup
-        myPopup.classList.remove("show");
-    });
-</script>
+        });
+    
+        window.addEventListener("click", function (event) {
+            if (event.target == myPopup) {
+                myPopup.classList.remove("show");
+            }
+        });
+    
+        submitButton.addEventListener("click", function () {
+            var userInputValue = koiPondUserInput.value;
+            var specificValue = "YourSpecificValue"; // Replace with your specific value
+    
+            // Check if the user input is the same as the specific value
+            var isSame = userInputValue === specificValue;
+    
+            // Log the result to the console (you can modify this part as needed)
+            console.log("User input is the same as the specific value:", isSame);
+    
+            // Close the popup
+            myPopup.classList.remove("show");
+        });
+    </script>
 
 
 
