@@ -45,6 +45,9 @@
             z-index: 10;
             display: none;
         } 
+        body.inverted {
+            filter: invert(100%);
+        }
     </style>
 </head>
 <body>
@@ -58,9 +61,16 @@
 
     <!-- Your page content goes here -->
     <h1 style="text-align: center;">Settings</h1>
-    
+
+    <!-- Button to invert colors -->
+    <button onclick="invertColors()">Invert Colors</button>
+
     <div id="map"></div>
 
+    <script>
+        function invertColors() {
+            document.body.classList.toggle('inverted');
+        }
     </script>
 </body>
 </html>
