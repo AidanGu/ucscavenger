@@ -77,137 +77,162 @@
         <a href="quests.html">Quests</a>
         <a href="profile.html">Profile</a>
         <a href="settings.html">Settings</a>
-        <a href="test.html">test</a>
         
     </header>
 
     <!-- Your page content goes here -->
     <h1 style="text-align: center;">Quests</h1>
     
-
-
-    <h1 style="text-align: center;">Quests</h1>
-
+    
     <h1>Porter</h1>
     <button id="koiPondButton">
         Find the Koi Pond
     </button>
-    <div id="koiPopup" class="popup">
-        <div class="koi-content">
+    <div id="myPopup" class="popup">
+        <div class="popup-content">
             <h1 style="color:green;">Koi Pond</h1>
             <p>What's on the plaque?</p>
             <input type="text" id="koiPondUser" size="30">
-            <button id="koiSubmitButton">Submit</button>
-            <button id="koiClosePopup">Close</button>
-            <div id="koiResultMessage" style="font-size: 24px; margin-top: 10px;"></div>
+            <button id="submitButton">Submit</button>
+            <button id="closePopup">Close</button>
+            <div id="resultMessage" style="font-size: 24px; margin-top: 10px;"></div>
         </div>
     </div>
-
+    
     <script>
         var koiPondButton = document.getElementById("koiPondButton");
-        var koiPopup = document.getElementById("koiPopup");
-        var koiClosePopup = document.getElementById("koiClosePopup");
-        var koiSubmitButton = document.getElementById("koiSubmitButton");
+        var myPopup = document.getElementById("myPopup");
+        var closePopup = document.getElementById("closePopup");
+        var submitButton = document.getElementById("submitButton");
         var koiPondUserInput = document.getElementById("koiPondUser");
-        var koiResultMessageElement = document.getElementById("koiResultMessage");
-
-        koiPondButton.addEventListener("click", function () {
-            koiPopup.classList.add("show");
+        var resultMessageElement = document.getElementById("resultMessage");
+    
+        myButton.addEventListener("click", function () {
+            myPopup.classList.add("show");
         });
-
-        koiClosePopup.addEventListener("click", function () {
-            koiPopup.classList.remove("show");
+    
+        closePopup.addEventListener("click", function () {
+            myPopup.classList.remove("show");
         });
-
+    
         window.addEventListener("click", function (event) {
-            if (event.target == koiPopup) {
-                koiPopup.classList.remove("show");
+            if (event.target == myPopup) {
+                myPopup.classList.remove("show");
             }
         });
-
-        koiSubmitButton.addEventListener("click", function () {
+    
+        submitButton.addEventListener("click", function () {
             var userInputValue = koiPondUserInput.value;
             var specificValue = "fish"; // Replace with your specific value
-
+    
             // Check if the user input is the same as the specific value
             var isSame = userInputValue.toLowerCase() === specificValue.toLowerCase();
-
+    
             // Display the result on the screen
-            koiResultMessageElement.textContent = isSame ? "Quest Completed" : "Incorrect, please try again";
+            resultMessageElement.textContent = isSame ? "Quest Completed" : "Incorrect, please try again";
             if (isSame) {
                 koiPondButton.disabled = true;
             }
 
+
             // Close the popup (you can adjust this based on your requirements)
             if (isSame) {
                 setTimeout(function() {
-                    koiPopup.classList.remove("show");
-                    koiResultMessageElement.textContent = ""; // Clear the result after a delay
+                    myPopup.classList.remove("show");
+                    resultMessageElement.textContent = ""; // Clear the result after a delay
                 }, 3000); // Adjust the delay as needed (in milliseconds)
             }
         });
     </script>
 
-    <!-- <h1>Science Hill</h1>
+    <h1>Science Hill</h1>
     <button id="sealsButton">
         Find the Seals Sculpture
     </button>
-    <div id="sealsPopup" class="popup">
-        <div class="seals-content">
+    <div id="myPopup" class="popup">
+        <div class="popup-content">
             <h1 style="color:green;">Seals Sculpture</h1>
             <p>What's on the plaque?</p>
             <input type="text" id="sealsUser" size="30">
-            <button id="sealsSubmitButton">Submit</button>
-            <button id="sealsClosePopup">Close</button>
-            <div id="sealsResultMessage" style="font-size: 24px; margin-top: 10px;"></div>
+            <button id="submitButton">Submit</button>
+            <button id="closePopup">Close</button>
+            <div id="resultMessage" style="font-size: 24px; margin-top: 10px;"></div>
         </div>
     </div>
 
+
+
     <script>
         var sealsButton = document.getElementById("sealsButton");
-        var sealsPopup = document.getElementById("sealsPopup");
-        var sealsClosePopup = document.getElementById("sealsClosePopup");
-        var sealsSubmitButton = document.getElementById("sealsSubmitButton");
-        var sealsInput = document.getElementById("sealsUser");
-        var sealsResultMessageElement = document.getElementById("sealsResultMessage");
+        var myPopup = document.getElementById("myPopup");
+        var closePopup = document.getElementById("closePopup");
+        var submitButton = document.getElementById("submitButton");
+        var koiPondUserInput = document.getElementById("sealsUser");
+        var resultMessageElement = document.getElementById("resultMessage");
 
         sealsButton.addEventListener("click", function () {
-            sealsPopup.classList.add("show");
+            myPopup.classList.add("show");
         });
 
-        sealsClosePopup.addEventListener("click", function () {
-            sealsPopup.classList.remove("show");
+        closePopup.addEventListener("click", function () {
+            myPopup.classList.remove("show");
         });
 
         window.addEventListener("click", function (event) {
-            if (event.target == sealsPopup) {
-                sealsPopup.classList.remove("show");
+            if (event.target == myPopup) {
+                myPopup.classList.remove("show");
             }
         });
 
-        sealsSubmitButton.addEventListener("click", function () {
-            var userInputValue = sealsInput.value;
+        submitButton.addEventListener("click", function () {
+            var userInputValue = sealsUserInput.value;
             var specificValue = "seals"; // Replace with your specific value
 
             // Check if the user input is the same as the specific value
             var isSame = userInputValue.toLowerCase() === specificValue.toLowerCase();
 
             // Display the result on the screen
-            sealsResultMessage
+            resultMessageElement.textContent = isSame ? "Quest Completed" : "Incorrect, please try again";
+            if (isSame) {
+                sealButton.disabled = true;
+            }
 
 
+            // Close the popup (you can adjust this based on your requirements)
+            if (isSame) {
+                setTimeout(function() {
+                    myPopup.classList.remove("show");
+                    resultMessageElement.textContent = ""; // Clear the result after a delay
+                }, 3000); // Adjust the delay as needed (in milliseconds)
+            }
+        });
 
-        <div id="myPopup" class="popup">
-            <div class="popup-content">
-                <h1 style="color:green;">
-                    What is inscribed on the plaque on the koi pond?
-                </h1>
-                <p>This is a popup box!</p>
-                <input type="text" id="koiPondUser" size="30">
-                <button id="submit-button">Submit</button>
-                <button id="close-button">Close</button>
-            </div>
-        </div> -->
-    </script> -->
+        function getCompletedQuests() {
+            var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)completedQuests\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+            return cookieValue ? cookieValue.split(',') : [];
+        }
+
+        function setQuestCompletionStatus(questName) {
+            var completedQuests = getCompletedQuests();
+            if (!completedQuests.includes(questName)) {
+                completedQuests.push(questName);
+                document.cookie = "completedQuests=" + completedQuests.join(',');
+            }
+        }
+    </script>
+
+
+    <!-- <div id="myPopup" class="popup">
+        <div class="popup-content">
+            <h1 style="color:green;">
+                What is inscribed on the plaque on the koi pond?
+              </h1>
+            <p>This is a popup box!</p>
+            <input type="text" id="koiPondUser" size="30">
+            <button id="submit-button">Submit</button>
+            <button id="close-button">Close</button>
+        </div>
+    </div> -->
+
 </body>
 </html>
