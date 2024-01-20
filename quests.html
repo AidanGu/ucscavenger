@@ -149,5 +149,66 @@
             }
         });
     </script>
+
+    <h1>Seals Sculpture</h1>
+    <button id="sealsButton">
+        Find the Seals Sculpture
+    </button>
+    <div id="sealsPopup" class="popup">
+        <div class="seals-content">
+            <h1 style="color:green;">Seals Sculpture</h1>
+            <p>What's on the plaque?</p>
+            <input type="text" id="sealsUser" size="30">
+            <button id="sealsSubmitButton">Submit</button>
+            <button id="sealsClosePopup">Close</button>
+            <div id="sealsResultMessage" style="font-size: 24px; margin-top: 10px;"></div>
+        </div>
+    </div>
+
+    <script>
+        var sealsButton = document.getElementById("sealsButton");
+        var sealsPopup = document.getElementById("sealsPopup");
+        var sealsClosePopup = document.getElementById("sealsClosePopup");
+        var sealsSubmitButton = document.getElementById("sealsSubmitButton");
+        var sealsUserInput = document.getElementById("sealsUser");
+        var sealsResultMessageElement = document.getElementById("sealsResultMessage");
+
+        sealsButton.addEventListener("click", function () {
+            sealsPopup.classList.add("show");
+        });
+
+        sealsClosePopup.addEventListener("click", function () {
+            sealsPopup.classList.remove("show");
+        });
+
+        sealsPopup.addEventListener("click", function (event) {
+            if (event.target == sealsPopup) {
+                sealsPopup.classList.remove("show");
+            }
+        });
+
+        sealsSubmitButton.addEventListener("click", function () {
+            var userInputValue = sealsUserInput.value;
+            var specificValue = "seals"; // Replace with your specific value
+
+            // Check if the user input is the same as the specific value
+            var isSame = userInputValue.toLowerCase() === specificValue.toLowerCase();
+
+            // Display the result on the screen
+            sealsResultMessageElement.textContent = isSame ? "Quest Completed" : "Incorrect, please try again";
+            if (isSame) {
+                sealsButton.disabled = true;
+            }
+
+            // Close the popup (you can adjust this based on your requirements)
+            if (isSame) {
+                setTimeout(function () {
+                    sealsPopup.classList.remove("show");
+                    sealsResultMessageElement.textContent = ""; // Clear the result after a delay
+                }, 3000);
+            }
+        });
+    </script>
+
 </body>
 </html>
