@@ -104,70 +104,6 @@
             -moz-animation: glow 1s ease-in-out infinite alternate;
             animation: glow 1s ease-in-out infinite alternate;
         }
-    
-
-        @-webkit-keyframes glow {
-            from {
-                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
-            }
-            to {
-                text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
-            }
-        }
-        /* Expand and Condense Menu */
-        .menu {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-
-        .menu-toggle {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5em;
-        }
-
-        .menu-links {
-            display: flex;
-            flex-direction: column;
-            background-color: #3498db;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            margin-top: 5px;
-        }
-
-        .menu-links a {
-            padding: 10px;
-            color: #fff;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
-
-        .menu-links a:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        @media screen and (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .menu-links {
-                display: none;
-                position: absolute;
-                top: 50px;
-                right: 10px;
-                z-index: 1;
-            }
-
-            .menu-links.show {
-                display: flex;
-            }
-        }
 
             button.glow {
             animation: glow 1s ease-in-out infinite alternate;
@@ -187,7 +123,7 @@
     <main>
     <!-- Header Section (Modified) -->
     <header>
-        <h1 style="font-size: 4em;">UCscavenger</h1>
+        <h1 style="font-size: 5em;">UCscavenger</h1>
         <h1 class="glow"><a href="your-other-page.html">GO TO MAP</a></h1>
     </header>
 
