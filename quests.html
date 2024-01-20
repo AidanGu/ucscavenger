@@ -205,6 +205,9 @@
         </script>
 
 
+
+
+
     <!-- Baskin Section -->
     <h1>Baskin Engineering</h1>
     <button id="baskinButton">
@@ -213,7 +216,7 @@
     <div id="baskinPopup" class="popup">
         <div class="popup-content">
             <h1 style="color:green;">Maker's Space</h1>
-            <p>What's written on the flag hanging in the Maker's Space?</p>
+            <p>What's written on the red flag hanging in the Maker's Space?</p>
             <input type="text" id="baskinUser" size="30">
             <button id="baskinSubmitButton">Submit</button>
             <button id="baskinClosePopup">Close</button>
@@ -258,6 +261,66 @@
                 setTimeout(function () {
                     baskinPopup.classList.remove("show");
                     baskinResultMessageElement.textContent = "";
+                }, 3000);
+            }
+        });
+        </script>
+
+
+
+    <!-- Central Campus -->
+    <h1>Central Campus</h1>
+    <button id="centralButton">
+        Go to McHenry Library
+    </button>
+    <div id="centralPopup" class="popup">
+        <div class="popup-content">
+            <h1 style="color:green;">McHenry Library</h1>
+            <p>What art archive is on the second floor of the library?</p>
+            <input type="text" id="centralUser" size="30">
+            <button id="centralSubmitButton">Submit</button>
+            <button id="centralClosePopup">Close</button>
+            <div id="centralResultMessage" style="font-size: 24px; margin-top: 10px;"></div>
+        </div>
+    </div>
+
+    <script>
+        var centralButton = document.getElementById("centralButton");
+        var centralPopup = document.getElementById("bcentralPopup");
+        var centralClosePopup = document.getElementById("centralClosePopup");
+        var centralSubmitButton = document.getElementById("centralSubmitButton");
+        var centralUserInput = document.getElementById("centralUser");
+        var centralResultMessageElement = document.getElementById("centralResultMessage");
+
+        centralButton.addEventListener("click", function () {
+            centralPopup.classList.add("show");
+        });
+
+        centralClosePopup.addEventListener("click", function () {
+            centralPopup.classList.remove("show");
+        });
+
+        centralPopup.addEventListener("click", function (event) {
+            if (event.target == centralPopup) {
+                centralPopup.classList.remove("show");
+            }
+        });
+
+        centralSubmitButton.addEventListener("click", function () {
+            var userInputValue = centralUserInput.value;
+            var specificValue = "grateful dead archive";
+
+            var isSame = userInputValue.toLowerCase() === specificValue.toLowerCase();
+
+            centralResultMessageElement.textContent = isSame ? "Quest Completed" : "Incorrect, please try again";
+            if (isSame) {
+                centralButton.disabled = true;
+            }
+
+            if (isSame) {
+                setTimeout(function () {
+                    centralPopup.classList.remove("show");
+                    centralResultMessageElement.textContent = "";
                 }, 3000);
             }
         });
