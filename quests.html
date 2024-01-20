@@ -138,10 +138,12 @@
 
 
             // Close the popup (you can adjust this based on your requirements)
-            setTimeout(function() {
-                myPopup.classList.remove("show");
-                resultMessageElement.textContent = ""; // Clear the result after a delay
-            }, 2000); // Adjust the delay as needed (in milliseconds)
+            if (!isSame){
+                setTimeout(function() {
+                    myPopup.classList.remove("show");
+                    resultMessageElement.textContent = ""; // Clear the result after a delay
+                }, 2000); // Adjust the delay as needed (in milliseconds)
+            }
         });
     </script>
 
