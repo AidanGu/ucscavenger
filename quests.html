@@ -132,8 +132,11 @@
     
             // Display the result on the screen
             resultMessageElement.textContent = isSame ? "Correct" : "False";
-    
-            myButton.disabled = isSame;
+            if (isSame) {
+                myButton.disabled = true;
+            }
+
+
             // Close the popup (you can adjust this based on your requirements)
             setTimeout(function() {
                 myPopup.classList.remove("show");
