@@ -45,6 +45,9 @@
             z-index: 10;
             display: none;
         } 
+        body.inverted {
+            filter: invert(100%);
+        }
     </style>
 </head>
 <body>
@@ -58,9 +61,30 @@
 
     <!-- Your page content goes here -->
     <h1 style="text-align: center;">Settings</h1>
-    
+
+    <!-- Button to invert colors -->
+    <button onclick="invertColors()">Invert Colors</button>
+
     <div id="map"></div>
 
+    <script>
+        // Function to toggle color inversion
+        function invertColors() {
+            var body = document.body;
+            body.classList.toggle('inverted');
+            
+            // Set a cookie to remember user preference
+            var isInverted = body.classList.contains('inverted');
+            document.cookie = "colorInverted=" + isInverted;
+        }
+
+        // Check for color inversion preference on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            var isInverted = document.cookie.includes('colorInverted=true');
+            if (isInverted) {
+                document.body.classList.add('inverted');
+            }
+        });
     </script>
 </body>
 </html>
