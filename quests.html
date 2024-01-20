@@ -81,12 +81,19 @@
     </header>
 
     <!-- Your page content goes here -->
+<<<<<<< Updated upstream
     <h1 style="text-align: center;">Quests</h1>
     
     
+=======
+
+    <h1 style="text-align: center;">Quests</h1>
+
+>>>>>>> Stashed changes
     <h1>Porter</h1>
-    <button id="koiPondButton">
-        Find the Koi Pond
+    
+    <button id="myButton">
+        Visit the Koi Pond!
     </button>
     <div id="myPopup" class="popup">
         <div class="popup-content">
@@ -100,6 +107,7 @@
     </div>
     
     <script>
+<<<<<<< Updated upstream
         var koiPondButton = document.getElementById("koiPondButton");
         var myPopup = document.getElementById("myPopup");
         var closePopup = document.getElementById("closePopup");
@@ -122,6 +130,30 @@
         });
     
         submitButton.addEventListener("click", function () {
+=======
+        var koiButton = document.getElementById("myButton");
+        var koiPopup = document.getElementById("myPopup");
+        var koiClosePopup = document.getElementById("closePopup");
+        var koiSubmitButton = document.getElementById("submitButton");
+        var koiPondUserInput = document.getElementById("UserInput");
+        var koiresultMessageElement = document.getElementById("resultMessage");
+    
+        koiButton.addEventListener("click", function () {
+            koiPopup.classList.add("show");
+        });
+    
+        koiClosePopup.addEventListener("click", function () {
+            koiPopup.classList.remove("show");
+        });
+    
+        koiWindow.addEventListener("click", function (event) {
+            if (event.target == koiPopup) {
+                koiPopup.classList.remove("show");
+            }
+        });
+    
+        koiSubmitButton.addEventListener("click", function () {
+>>>>>>> Stashed changes
             var userInputValue = koiPondUserInput.value;
             var specificValue = "fish"; // Replace with your specific value
     
@@ -131,20 +163,26 @@
             // Display the result on the screen
             resultMessageElement.textContent = isSame ? "Quest Completed" : "Incorrect, please try again";
             if (isSame) {
-                koiPondButton.disabled = true;
+                koiButton.disabled = true;
             }
 
 
             // Close the popup (you can adjust this based on your requirements)
             if (isSame) {
                 setTimeout(function() {
+<<<<<<< Updated upstream
                     myPopup.classList.remove("show");
                     resultMessageElement.textContent = ""; // Clear the result after a delay
                 }, 3000); // Adjust the delay as needed (in milliseconds)
+=======
+                    koiPopup.classList.remove("show");
+                    resultMessageElement.textContent = ""; // Clear the result after a delay
+                }, 3000);
+>>>>>>> Stashed changes
             }
-        });
     </script>
 
+<<<<<<< Updated upstream
     <h1>Science Hill</h1>
     <button id="sealsButton">
         Find the Seals Sculpture
@@ -187,15 +225,62 @@
         submitButton.addEventListener("click", function () {
             var userInputValue = sealsUserInput.value;
             var specificValue = "seals"; // Replace with your specific value
+=======
+    // <!-- <h1>Science Hill</h1>
+    // <button id="sealsButton">
+    //     Find the Seals Sculpture
+    // </button>
+    // <div id="sealsPopup" class="popup">
+    //     <div class="seals-content">
+    //         <h1 style="color:green;">Seals Sculpture</h1>
+    //         <p>What's on the plaque?</p>
+    //         <input type="text" id="sealsUser" size="30">
+    //         <button id="sealsSubmitButton">Submit</button>
+    //         <button id="sealsClosePopup">Close</button>
+    //         <div id="sealsResultMessage" style="font-size: 24px; margin-top: 10px;"></div>
+    //     </div>
+    // </div>
 
-            // Check if the user input is the same as the specific value
-            var isSame = userInputValue.toLowerCase() === specificValue.toLowerCase();
+    // <script>
+    //     var sealsButton = document.getElementById("sealsButton");
+    //     var sealsPopup = document.getElementById("sealsPopup");
+    //     var sealsClosePopup = document.getElementById("sealsClosePopup");
+    //     var sealsSubmitButton = document.getElementById("sealsSubmitButton");
+    //     var sealsInput = document.getElementById("sealsUser");
+    //     var sealsResultMessageElement = document.getElementById("sealsResultMessage");
 
+    //     sealsButton.addEventListener("click", function () {
+    //         sealsPopup.classList.add("show");
+    //     });
+
+    //     sealsClosePopup.addEventListener("click", function () {
+    //         sealsPopup.classList.remove("show");
+    //     });
+
+    //     window.addEventListener("click", function (event) {
+    //         if (event.target == sealsPopup) {
+    //             sealsPopup.classList.remove("show");
+    //         }
+    //     });
+
+    //     sealsSubmitButton.addEventListener("click", function () {
+    //         var userInputValue = sealsInput.value;
+    //         var specificValue = "seals"; // Replace with your specific value
+>>>>>>> Stashed changes
+
+    //         // Check if the user input is the same as the specific value
+    //         var isSame = userInputValue.toLowerCase() === specificValue.toLowerCase();
+
+<<<<<<< Updated upstream
             // Display the result on the screen
             resultMessageElement.textContent = isSame ? "Quest Completed" : "Incorrect, please try again";
             if (isSame) {
                 sealButton.disabled = true;
             }
+=======
+    //         // Display the result on the screen
+    //         sealsResultMessage
+>>>>>>> Stashed changes
 
 
             // Close the popup (you can adjust this based on your requirements)
@@ -234,5 +319,20 @@
         </div>
     </div> -->
 
+<<<<<<< Updated upstream
+=======
+    //     <div id="myPopup" class="popup">
+    //         <div class="popup-content">
+    //             <h1 style="color:green;">
+    //                 What is inscribed on the plaque on the koi pond?
+    //             </h1>
+    //             <p>This is a popup box!</p>
+    //             <input type="text" id="koiPondUser" size="30">
+    //             <button id="submit-button">Submit</button>
+    //             <button id="close-button">Close</button>
+    //         </div>
+    //     </div> -->
+    // </script> 
+>>>>>>> Stashed changes
 </body>
 </html>
