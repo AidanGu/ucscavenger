@@ -97,6 +97,7 @@
             <input type="text" id="koiPondUser" size="30">
             <button id="submitButton">Submit</button>
             <button id="closePopup">Close</button>
+            <div id="resultMessage" style="font-size: 24px; margin-top: 10px;"></div>
         </div>
     </div>
     
@@ -106,6 +107,7 @@
         var closePopup = document.getElementById("closePopup");
         var submitButton = document.getElementById("submitButton");
         var koiPondUserInput = document.getElementById("koiPondUser");
+        var resultMessageElement = document.getElementById("resultMessage");
     
         myButton.addEventListener("click", function () {
             myPopup.classList.add("show");
@@ -123,16 +125,19 @@
     
         submitButton.addEventListener("click", function () {
             var userInputValue = koiPondUserInput.value;
-            var specificValue = "fish"; // Replace with your specific value
+            var specificValue = "YourSpecificValue"; // Replace with your specific value
     
             // Check if the user input is the same as the specific value
             var isSame = userInputValue === specificValue;
     
-            // Log the result to the console (you can modify this part as needed)
-            console.log("Good Job! :) the correct ans was", isSame);
+            // Display the result on the screen
+            resultMessageElement.textContent = isSame ? "Correct" : "False";
     
-            // Close the popup
-            myPopup.classList.remove("show");
+            // Close the popup (you can adjust this based on your requirements)
+            setTimeout(function() {
+                myPopup.classList.remove("show");
+                resultMessageElement.textContent = ""; // Clear the result after a delay
+            }, 2000); // Adjust the delay as needed (in milliseconds)
         });
     </script>
 
