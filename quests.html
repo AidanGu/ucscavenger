@@ -124,11 +124,11 @@
         });
     
         submitButton.addEventListener("click", function () {
-            var userInputValue = koiPondUserInput.value;
-            var specificValue = "1"; // Replace with your specific value
+            var userInputValue = koiPondUserInput.string;
+            var specificValue = "fish"; // Replace with your specific value
     
             // Check if the user input is the same as the specific value
-            var isSame = userInputValue === specificValue;
+            var isSame = userInputValue == specificValue;
     
             // Display the result on the screen
             resultMessageElement.textContent = isSame ? "Correct" : "False";
