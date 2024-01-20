@@ -18,7 +18,7 @@
         }
 
         header {
-            background: linear-gradient(to right, #3498db, rgba(52, 152, 219, 0));
+            background: linear-gradient(to bottom, #3498db, rgba(52, 152, 219, 0));
             color: #fff;
             text-align: center;
             padding: 20px;
@@ -98,6 +98,24 @@
             width: 100%;
         }
 
+        .glow {
+            font-size: 80px;
+            color: #fff;
+            text-align: center;
+            -webkit-animation: glow 1s ease-in-out infinite alternate;
+            -moz-animation: glow 1s ease-in-out infinite alternate;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+    
+
+        @-webkit-keyframes glow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+            }
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+            }
+        }
         /* Expand and Condense Menu */
         .menu {
             position: absolute;
@@ -171,9 +189,7 @@
 
     <!-- Header Section -->
     <header>
-        <h1 style="font-size: 3em;">UCSCAVENGERS</h1>
-        <!-- Big Glowing Button -->
-        <button onclick="alert('Button Clicked!')">Glowing Button</button>
+        <h1 class="glow"><a href="your-other-page.html">GO TO MAP</a></h1>
 
         <!-- Expand and Condense Menu -->
         <div class="menu">
@@ -188,12 +204,7 @@
     </style>
 </head>
 <body>
-  
-    <!-- Header Section -->
-    <header>
-        <h1 style="font-size: 3em;">UCscavenger</h1>
-    </header>
-
+    
     <!-- Main Content Section -->
     <main>
 
