@@ -103,7 +103,10 @@
             <input type="text" id="koiPondUser" size="30">
             <button id="koiSubmitButton">Submit</button>
             <button id="koiClosePopup">Close</button>
-            <div id="koiResultMessage" style="font-size: 24px; margin-top: 10px;"></div>
+            <div id="koiResultMessage">
+                <span id="koiResultMessageTrue" style="color: green;"></span>
+                <span id="koiResultMessageFalse" style="color: red;"></span>
+            </div>
         </div>
     </div>
 
@@ -113,7 +116,8 @@
         var koiClosePopup = document.getElementById("koiClosePopup");
         var koiSubmitButton = document.getElementById("koiSubmitButton");
         var koiPondUserInput = document.getElementById("koiPondUser");
-        var koiResultMessageElement = document.getElementById("koiResultMessage");
+        var koiResultMessageElementTrue = document.getElementById("koiResultMessageTrue");
+        var koiResultMessageElementFalse = document.getElementById("koiResultMessageFalse");
 
         koiButton.addEventListener("click", function () {
             koiPopup.classList.add("show");
@@ -135,7 +139,8 @@
 
             var isSame = userInputValue.toLowerCase() === specificValue.toLowerCase();
 
-            koiResultMessageElement.textContent = isSame ? "Quest Completed" : "Incorrect, please try again";
+            koiResultMessageElementTrue.textContent = isSame ? "Quest Completed" : "";
+            koiResultMessageElementFalse.textContent = !isSame ? "Incorrect, please try again" : "";
             if (isSame) {
                 koiButton.disabled = true;
             }
