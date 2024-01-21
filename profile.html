@@ -167,13 +167,14 @@
         </div>
         
     <script>
-        // Function to save the entered name and selected image in a cookie
+                // Function to save the entered name and selected image in a cookie
+                // Function to save the entered name and selected image in a cookie
         function saveProfile() {
             var enteredName = document.getElementById("name").value;
             var selectedImage = document.querySelector('.profile-image').src;
 
-            document.cookie = "profileName=" + enteredName;
-            document.cookie = "profileImage=" + selectedImage;
+            document.cookie = "profileName=" + encodeURIComponent(enteredName) + "; path=/";
+            document.cookie = "profileImage=" + encodeURIComponent(selectedImage) + "; path=/";
 
             displayProfile();
         }
