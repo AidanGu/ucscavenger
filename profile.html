@@ -330,15 +330,20 @@
         document.querySelectorAll('.slug img').forEach(function (image) {
             image.addEventListener('click', function () {
                 // Get the source of the clicked image
-                var newImageSrc = this.src;
-
-                // Update the profile image source
+                var newImageSrc = "tempSLUG.png";
+                if(this.src.toLowerCase() !== "lockedslugreal.png"){
+                    newImageSrc = this.src;
+                }
+                else{
+                    newImageSrc = "defaultSLUG.png";
+                }
+                    // Update the profile image source
                 var profileImage = document.querySelector('.profile-image');
                 profileImage.src = newImageSrc;
 
                 // Save the selected image in localStorage
                 localStorage.setItem("profileImage", newImageSrc);
-
+                
                 // Optionally, you can perform other actions
             });
         });
