@@ -294,7 +294,10 @@
             <input type="text" id="centralUser" size="30">
             <button id="centralSubmitButton">Submit</button>
             <button id="centralClosePopup">Close</button>
-            <div id="centralResultMessage" style="font-size: 24px; margin-top: 10px;"></div>
+            <div id="centralResultMessage">
+                <span id="centralResultMessageTrue" style="color: green;"></span>
+                <span id="centralResultMessageFalse" style="color: red;"></span>
+            </div>
         </div>
     </div>
 
@@ -304,7 +307,8 @@
         var centralClosePopup = document.getElementById("centralClosePopup");
         var centralSubmitButton = document.getElementById("centralSubmitButton");
         var centralUserInput = document.getElementById("centralUser");
-        var centralResultMessageElement = document.getElementById("centralResultMessage");
+        var centralResultMessageElementTrue = document.getElementById("centralResultMessageTrue");
+        var centralResultMessageElementFalse = document.getElementById("centralResultMessageFalse");
 
         centralButton.addEventListener("click", function () {
             centralPopup.classList.add("show");
@@ -326,7 +330,8 @@
 
             var isSame = userInputValue.toLowerCase() === specificValue.toLowerCase();
 
-            centralResultMessageElement.textContent = isSame ? "Quest Completed" : "Incorrect, please try again";
+            centralResultMessageElementTrue.textContent = isSame ? "Quest Completed" : "";
+            centralResultMessageElementFalse.textContent = !isSame ? "Incorrect, please try again" : "";
             if (isSame) {
                 centralButton.disabled = true;
             }
