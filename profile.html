@@ -289,10 +289,25 @@
     <script>
         function saveProfile() {
             var enteredName = document.getElementById("name").value;
-            var selectedImage = document.querySelector('.profile-image').src;
-
+            var selectedImage = "defaultSLUG.png";
+                selectedImage = document.querySelector('.profile-image').src;
+                if(selectedImage.src == "pngbobross.png" && koiQuestCompletedValue != null){
+                    localStorage.setItem("profileImage", selectedImage);
+                }
+                else if(selectedImage.src == "baskinPNG.png" && baskinQuestCompletedValue != null){
+                    localStorage.setItem("profileImage", selectedImage);
+                }
+                else if(selectedImage.src == "quarryPNG.png" && centralQuestCompletedValue != null){
+                    localStorage.setItem("profileImage", selectedImage);
+                }
+                else if(selectedImage.src == "scihillSLUG.png" && sealsQuestCompletedValue != null){
+                    localStorage.setItem("profileImage", selectedImage);
+                }
+                else{
+                    
+                }
             localStorage.setItem("profileName", enteredName);
-            localStorage.setItem("profileImage", selectedImage);
+            
 
             displayProfile();
         }
