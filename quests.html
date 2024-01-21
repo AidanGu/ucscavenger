@@ -91,19 +91,24 @@
 
     <script>
         function checkQuestCompletedCookie() {
-        // Retrieve the value of the "koiQuestCompleted" cookie
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = cookies[i].trim();
-            if (cookie.indexOf("koiQuestCompleted=") === 0) {
-                // The quest has been completed if the cookie value is "true"
-                return cookie.substring("koiQuestCompleted=".length, cookie.length) === "true";
+            // Retrieve the value of the "koiQuestCompleted" cookie
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf("koiQuestCompleted=") === 0) {
+                    // The quest has been completed if the cookie value is "true"
+                    return cookie.substring("koiQuestCompleted=".length, cookie.length) === "true";
+                }
             }
+            return false; // Default to false if the cookie is not found
         }
-        return false; // Default to false if the cookie is not found
-    }
+
+        function setQuestCompletedCookie() {
+            // Set a cookie named "koiQuestCompleted" with a value of "true"
+            document.cookie = "koiQuestCompleted=true; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/";
+        }
     </script>
-    
+
     <script>
         var isKoiQuestCompleted = checkQuestCompletedCookie();
         // Use the result to disable the button or perform other actions
@@ -111,8 +116,7 @@
             koiButton.disabled = true;
         }
     </script>
-    
-    
+
     <!-- Koi Pond Section -->
     <h1>Porter</h1>
     <button id="koiButton">
@@ -163,12 +167,9 @@
 
             koiResultMessageElementTrue.textContent = isSame ? "Quest Completed" : "";
             koiResultMessageElementFalse.textContent = !isSame ? "Incorrect, please try again" : "";
+
             if (isSame) {
-                koiButton.disabled = true;
-                function setQuestCompletedCookie() {
-                    // Set a cookie named "koiQuestCompleted" with a value of "true"
-                    document.cookie = "koiQuestCompleted=true; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/";
-                }
+                setQuestCompletedCookie(); // Call the function to set the cookie
             }
 
             if (isSame) {
@@ -179,6 +180,7 @@
             }
         });
     </script>
+
 
     
 
@@ -259,6 +261,7 @@
         <div class="popup-content">
             <h1 style="color:rgb(2, 62, 228);">Maker's Space</h1>
             <p>What's written on the red flag hanging in the Maker's Space?</p>
+            <p>"We do this ___ because it is easy, but because we thought it would be ___"</p>
             <input type="text" id="baskinUser" size="30">
             <button id="baskinSubmitButton">Submit</button>
             <button id="baskinClosePopup">Close</button>
@@ -295,7 +298,7 @@
 
         baskinSubmitButton.addEventListener("click", function () {
             var userInputValue = baskinUserInput.value;
-            var specificValue = "we do this not because it is easy, but because we thought it would be easy";
+            var specificValue = "not easy";
 
             var isSame = userInputValue.toLowerCase() === specificValue.toLowerCase();
 
