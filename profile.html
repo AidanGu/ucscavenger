@@ -65,14 +65,18 @@
     <!-- Your page content goes here -->
     <h1 style="text-align: center;">Profile</h1>
     
-    <div id="map"></div>
+    <div class="profile-container">
+        <!-- Circle container with profile image -->
+        <div class="circle-container">
+            <img class="profile-image" src="dog.jpg" alt="Profile Image">
+        </div>
 
-    <!-- Profile name input form -->
-    <div id="profile-form">
-        <label for="name">Enter your name:</label>
-        <input type="text" id="name" placeholder="Your Name">
-        <button onclick="saveName()">Save</button>
-    </div>
+        <!-- Profile name input form -->
+        <div id="profile-form">
+            <label for="name">Enter your name:</label>
+            <input type="text" id="name" placeholder="Your Name">
+            <button onclick="saveName()">Save</button>
+        </div>
 
     <!-- Display saved profile name -->
     <div id="profile-name"></div>
