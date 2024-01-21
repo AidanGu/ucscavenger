@@ -235,7 +235,14 @@
 
             <!-- slug button 3 -->
             <div class="slug">
-                <img src="baskinPNG.png" alt="slug 3" width="100" height="100">
+                <img id = "baskinSLUG" src="lockedSLUGreal.png" alt="slug 3" width="100" height="100">
+                <script>
+                    var imageElement = document.getElementById("baskinSLUG");
+
+                    if(baskinQuestCompletedValue != null){
+                        imageElement.src = "baskinPNG.png"
+                    }
+                </script>
                 <!-- <p>Baskin Slug</p> -->
             </div>
 
