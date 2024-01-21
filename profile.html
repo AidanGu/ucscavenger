@@ -25,6 +25,33 @@
             font-weight: bold;
         }
 
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .circle-container {
+            width: 200px;
+            height: 200px;
+            background-color: #fff;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            object-fit: contain;
+            margin-bottom: 10px; /* Reduce margin for spacing */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-image {
+            width: 200%;
+            height: 200%;
+        }
+        
         #profile-form {
             display: flex;
             flex-direction: column;
@@ -85,7 +112,7 @@
     <div class="profile-container">
         <!-- Circle container with profile image -->
         <div class="circle-container">
-            <img class="profile-image" src="dog.jpg" alt="Profile Image">
+            <img class="profile-image" src="defaultSLUG.png" alt="Profile Image">
         </div>
 
         <!-- Profile name input form -->
