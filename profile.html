@@ -31,12 +31,11 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            margin-top: -50px;
         }
 
         .circle-container {
-            width: 250px;
-            height: 250px;
+            width: 350px;
+            height: 350px;
             background-color: #fff;
             border-radius: 50%;
             overflow: hidden;
@@ -44,29 +43,23 @@
             align-items: center;
             justify-content: center;
             object-fit: contain;
-            margin-bottom: 10px;
+            margin-bottom: 10px; /* Reduce margin for spacing */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .profile-image {
             width: 100%;
-            height: 100%;
+            height: auto;
         }
-
+        
         #profile-form {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: -20px;
         }
 
         #name {
             margin-bottom: 10px;
-            width: 80%;
-            max-width: 300px;
-            padding: 8px;
-            font-size: 16px;
-            box-sizing: border-box;
         }
 
         #name,
@@ -83,8 +76,8 @@
         }
 
         .slug {
-            width: 120px;
-            height: 120px;
+            width: 120px; /* Adjust the width */
+            height: 120px; /* Adjust the height */
             margin: 10px;
             background: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0);
@@ -96,29 +89,27 @@
         }
 
         .slug img {
-            cursor: pointer;
+            cursor: pointer; /* Add cursor style for indicating clickable */
             width: 100%;
             height: 100%;
             object-fit: contain;
             border: 2px solid #000000;
         }
 
-        @media only screen and (max-width: 600px) {
-            .circle-container {
-                width: 200px;
-                height: 200px;
-            }
+        h1 {
+            font-size: 24px;
+        }
 
-            .profile-image {
-                width: 125%;
-                height: 125%;
+        @media screen and (max-width: 480px) {
+            .circle-container {
+                width: 80%;
+                height: 80vw;
             }
         }
     </style>
 </head>
 <body>
 
-        
     <header>
         <a href="index.html">Home</a>
         <a href="map.html">Map</a>
