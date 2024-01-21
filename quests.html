@@ -95,7 +95,7 @@
     <h1>Porter</h1>
 
     <script>
-        function checkQuestCompletedCookie() {
+        function checkKoiQuestCompletedCookie() {
             // Retrieve the value of the "koiQuestCompleted" cookie
             var cookies = document.cookie.split(';');
             for (var i = 0; i < cookies.length; i++) {
@@ -108,7 +108,7 @@
             return false; // Default to false if the cookie is not found
         }
 
-        function setQuestCompletedCookie() {
+        function setKoiQuestCompletedCookie() {
             // Set a cookie named "koiQuestCompleted" with a value of "true"
             document.cookie = "koiQuestCompleted=true; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/";
         }
@@ -164,7 +164,7 @@
             koiResultMessageElementFalse.textContent = !isSame ? "Incorrect, please try again" : "";
 
             if (isSame) {
-                setQuestCompletedCookie(); // Call the function to set the cookie
+                setKoiQuestCompletedCookie(); // Call the function to set the cookie
                 koiButton.disabled = true;
             }
 
@@ -176,108 +176,13 @@
             }
         });
         
-        var isKoiQuestCompleted = checkQuestCompletedCookie();
+        var isKoiQuestCompleted = checkKoiQuestCompletedCookie();
         // Use the result to disable the button or perform other actions
         if (isKoiQuestCompleted) {
             koiButton.disabled = true;
         }
     </script>
 
-
-    
-    <!-- Seals Sculpture Section -->
-    <h1>Science Hill</h1>
-
-    <script>
-        function checkSealsQuestCompletedCookie() {
-            // Retrieve the value of the "sealsQuestCompleted" cookie
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = cookies[i].trim();
-                if (cookie.indexOf("sealsQuestCompleted=") === 0) {
-                    // The quest has been completed if the cookie value is "true"
-                    return cookie.substring("sealsQuestCompleted=".length, cookie.length) === "true";
-                }
-            }
-            return false; // Default to false if the cookie is not found
-        }
-
-        function setSealsQuestCompletedCookie() {
-            // Set a cookie named "sealsQuestCompleted" with a value of "true"
-            document.cookie = "sealsQuestCompleted=true; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/";
-        }
-    </script>
-
-    <button id="sealsButton">
-        Go to the Earth and Marine Sciences Building
-    </button>
-    <div id="sealsPopup" class="popup">
-        <div class="popup-content">
-            <h1 style="color:rgb(2, 62, 228);">Seals Sculpture</h1>
-            <p>What is the capacity of the B206 Lecture Hall?</p>
-            <input type="text" id="sealsUser" size="30">
-            <button id="sealsSubmitButton">Submit</button>
-            <button id="sealsClosePopup">Close</button>
-            <div id="sealsResultMessage">
-                <span id="sealsResultMessageTrue" style="color: green;"></span>
-                <span id="sealsResultMessageFalse" style="color: red;"></span>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        var sealsButton = document.getElementById("sealsButton");
-        var sealsPopup = document.getElementById("sealsPopup");
-        var sealsClosePopup = document.getElementById("sealsClosePopup");
-        var sealsSubmitButton = document.getElementById("sealsSubmitButton");
-        var sealsUserInput = document.getElementById("sealsUser");
-        var sealsResultMessageElementTrue = document.getElementById("sealsResultMessageTrue");
-        var sealsResultMessageElementFalse = document.getElementById("sealsResultMessageFalse");
-
-        sealsButton.addEventListener("click", function () {
-            sealsPopup.classList.add("show");
-        });
-
-        sealsClosePopup.addEventListener("click", function () {
-            sealsPopup.classList.remove("show");
-        });
-
-        sealsPopup.addEventListener("click", function (event) {
-            if (event.target == sealsPopup) {
-                sealsPopup.classList.remove("show");
-            }
-        });
-
-        sealsSubmitButton.addEventListener("click", function () {
-            var userInputValue = sealsUserInput.value;
-            var specificValue = "268";
-
-            var isSame = userInputValue.toLowerCase() === specificValue.toLowerCase();
-
-            sealsResultMessageElementTrue.textContent = isSame ? "Quest Completed" : "";
-            sealsResultMessageElementFalse.textContent = !isSame ? "Incorrect, please try again" : "";
-            if (isSame) {
-                sealsButton.disabled = true;
-                setSealsQuestCompletedCookie(); // Call the function to set the cookie
-            }
-
-            if (isSame) {
-                setTimeout(function () {
-                    sealsPopup.classList.remove("show");
-                    sealsResultMessageElementTrue.textContent = "";
-                    sealsResultMessageElementFalse.textContent = ""; // Clear the result after a delay
-                }, 3000);
-            }
-        });
-
-        var isSealsQuestCompleted = checkSealsQuestCompletedCookie();
-        // Use the result to disable the button or perform other actions
-        if (isSealsQuestCompleted) {
-            sealsButton.disabled = true;
-        }
-    </script>
-
-    
 
     <!-- Baskin Section -->
     <h1>Baskin Engineering</h1>
@@ -464,5 +369,97 @@
             centralButton.disabled = true;
         }
         </script>
+
+    <!-- Seals Sculpture Section -->
+    <h1>Science Hill</h1>
+
+    <script>
+        function checkSealsQuestCompletedCookie() {
+            // Retrieve the value of the "sealsQuestCompleted" cookie
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf("sealsQuestCompleted=") === 0) {
+                    // The quest has been completed if the cookie value is "true"
+                    return cookie.substring("sealsQuestCompleted=".length, cookie.length) === "true";
+                }
+            }
+            return false; // Default to false if the cookie is not found
+        }
+
+        function setSealsQuestCompletedCookie() {
+            // Set a cookie named "sealsQuestCompleted" with a value of "true"
+            document.cookie = "sealsQuestCompleted=true; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/";
+        }
+    </script>
+
+    <button id="sealsButton">
+        Go to the Earth and Marine Sciences Building
+    </button>
+    <div id="sealsPopup" class="popup">
+        <div class="popup-content">
+            <h1 style="color:rgb(2, 62, 228);">Seals Sculpture</h1>
+            <p>What is the capacity of the B206 Lecture Hall?</p>
+            <input type="text" id="sealsUser" size="30">
+            <button id="sealsSubmitButton">Submit</button>
+            <button id="sealsClosePopup">Close</button>
+            <div id="sealsResultMessage">
+                <span id="sealsResultMessageTrue" style="color: green;"></span>
+                <span id="sealsResultMessageFalse" style="color: red;"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var sealsButton = document.getElementById("sealsButton");
+        var sealsPopup = document.getElementById("sealsPopup");
+        var sealsClosePopup = document.getElementById("sealsClosePopup");
+        var sealsSubmitButton = document.getElementById("sealsSubmitButton");
+        var sealsUserInput = document.getElementById("sealsUser");
+        var sealsResultMessageElementTrue = document.getElementById("sealsResultMessageTrue");
+        var sealsResultMessageElementFalse = document.getElementById("sealsResultMessageFalse");
+
+        sealsButton.addEventListener("click", function () {
+            sealsPopup.classList.add("show");
+        });
+
+        sealsClosePopup.addEventListener("click", function () {
+            sealsPopup.classList.remove("show");
+        });
+
+        sealsPopup.addEventListener("click", function (event) {
+            if (event.target == sealsPopup) {
+                sealsPopup.classList.remove("show");
+            }
+        });
+
+        sealsSubmitButton.addEventListener("click", function () {
+            var userInputValue = sealsUserInput.value;
+            var specificValue = "268";
+
+            var isSame = userInputValue.toLowerCase() === specificValue.toLowerCase();
+
+            sealsResultMessageElementTrue.textContent = isSame ? "Quest Completed" : "";
+            sealsResultMessageElementFalse.textContent = !isSame ? "Incorrect, please try again" : "";
+            if (isSame) {
+                sealsButton.disabled = true;
+                setSealsQuestCompletedCookie(); // Call the function to set the cookie
+            }
+
+            if (isSame) {
+                setTimeout(function () {
+                    sealsPopup.classList.remove("show");
+                    sealsResultMessageElementTrue.textContent = "";
+                    sealsResultMessageElementFalse.textContent = ""; // Clear the result after a delay
+                }, 3000);
+            }
+        });
+
+        var isSealsQuestCompleted = checkSealsQuestCompletedCookie();
+        // Use the result to disable the button or perform other actions
+        if (isSealsQuestCompleted) {
+            sealsButton.disabled = true;
+        }
+    </script>
 </body>
 </html>
