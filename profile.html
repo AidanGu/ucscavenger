@@ -306,5 +306,62 @@
             document.getElementById("name").value = getLocalStorageItem("profileName");
         });
     </script>
+
+<script>
+    // Function to check if a quest is completed
+    function isQuestCompleted(questName) {
+        // Replace 'questName' with the actual quest name (e.g., 'Koi Pond', 'Maker's Space', etc.)
+        return localStorage.getItem(questName) === 'true';
+    }
+
+    // Add an event listener to each slug image
+    document.querySelectorAll('.slug img').forEach(function (image, index) {
+        image.addEventListener('click', function () {
+            var slugNames = ["Default Slug", "Porter Slug", "Baskin Slug", "Central Campus Slug", "Science Hill Slug", "Master Slug"];
+            var questNames = ["", "Go to the Koi Pond", "Find the Maker's Space", "Go to McHenry Library", "Go to the Earth and Marine Sciences Building"];
+
+            // Check if the corresponding quest is completed
+            if (isQuestCompleted(questNames[index])) {
+                // Get the source of the clicked image
+                var newImageSrc = this.src;
+
+                // Update the profile image source
+                var profileImage = document.querySelector('.profile-image');
+                profileImage.src = newImageSrc;
+
+                // Save the selected image in localStorage
+                localStorage.setItem("profileImage", newImageSrc);
+
+                // Optionally, you can perform other actions
+            } else {
+                // Quest not completed, show a message or disable the click
+                alert("Complete the quest to unlock this slug!");
+            }
+        });
+    });
+
+    // Display saved profile on page load
+    window.addEventListener("DOMContentLoaded", function () {
+        displayProfile();
+
+        // Set the input value from localStorage
+        document.getElementById("name").value = getLocalStorageItem("profileName");
+
+        // Unlock the goldenslugREAL if all other quests are completed
+        var allQuestsCompleted = questNames.slice(1).every(function (questName) {
+            return isQuestCompleted(questName);
+        });
+
+        if (allQuestsCompleted) {
+            document.querySelector('.slug img[src="goldenslugREAL.png"]').addEventListener('click', function () {
+                var newImageSrc = this.src;
+                var profileImage = document.querySelector('.profile-image');
+                profileImage.src = newImageSrc;
+                localStorage.setItem("profileImage", newImageSrc);
+            });
+        }
+    });
+</script>
+    
 </body>
 </html>
