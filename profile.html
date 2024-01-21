@@ -290,10 +290,13 @@
         function saveProfile() {
             var enteredName = document.getElementById("name").value;
             var selectedImage = document.querySelector('.profile-image').src;
-                if(selectedImage != "lockedSLUGreal.png"){
-                    selectedImage = "tempSLUG.png";
-                    localStorage.setItem("profileImage", selectedImage);
-                }
+            if(selectedImage == "defaultSLUG.png"){
+                alert();
+            }
+                // if(selectedImage != "lockedSLUGreal.png"){
+                //     selectedImage = "tempSLUG.png";
+                //     localStorage.setItem("profileImage", selectedImage);
+                // }
             localStorage.setItem("profileName", enteredName);
 
             displayProfile();
