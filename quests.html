@@ -185,13 +185,11 @@
 
 
     
-
-
     <!-- Seals Sculpture Section -->
     <h1>Science Hill</h1>
 
     <script>
-        function checkQuestCompletedCookie() {
+        function checkSealsQuestCompletedCookie() {
             // Retrieve the value of the "sealsQuestCompleted" cookie
             var cookies = document.cookie.split(';');
             for (var i = 0; i < cookies.length; i++) {
@@ -204,7 +202,7 @@
             return false; // Default to false if the cookie is not found
         }
 
-        function setQuestCompletedCookie() {
+        function setSealsQuestCompletedCookie() {
             // Set a cookie named "sealsQuestCompleted" with a value of "true"
             document.cookie = "sealsQuestCompleted=true; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/";
         }
@@ -260,31 +258,50 @@
             sealsResultMessageElementFalse.textContent = !isSame ? "Incorrect, please try again" : "";
             if (isSame) {
                 sealsButton.disabled = true;
+                setSealsQuestCompletedCookie(); // Call the function to set the cookie
             }
 
             if (isSame) {
                 setTimeout(function () {
                     sealsPopup.classList.remove("show");
-                    sealsResultMessageElementTrue.textContent = ""; // Clear the result after a delay
+                    sealsResultMessageElementTrue.textContent = "";
                     sealsResultMessageElementFalse.textContent = ""; // Clear the result after a delay
                 }, 3000);
             }
         });
 
-        var isSealsQuestCompleted = checkQuestCompletedCookie();
+        var isSealsQuestCompleted = checkSealsQuestCompletedCookie();
         // Use the result to disable the button or perform other actions
         if (isSealsQuestCompleted) {
             sealsButton.disabled = true;
         }
     </script>
+
     
-
-
-
-
 
     <!-- Baskin Section -->
     <h1>Baskin Engineering</h1>
+    
+    <script>
+        function checkBaskinQuestCompletedCookie() {
+            // Retrieve the value of the "baskinQuestCompleted" cookie
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf("baskinQuestCompleted=") === 0) {
+                    // The quest has been completed if the cookie value is "true"
+                    return cookie.substring("baskinQuestCompleted=".length, cookie.length) === "true";
+                }
+            }
+            return false; // Default to false if the cookie is not found
+        }
+
+        function setBaskinQuestCompletedCookie() {
+            // Set a cookie named "baskinQuestCompleted" with a value of "true"
+            document.cookie = "baskinQuestCompleted=true; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/";
+        }
+    </script>
+
     <button id="baskinButton">
         Find the Maker's Space
     </button>
@@ -338,6 +355,7 @@
             
             if (isSame) {
                 baskinButton.disabled = true;
+                setBaskinQuestCompletedCookie(); // Call the function to set the cookie
             }
 
             if (isSame) {
@@ -347,6 +365,11 @@
                 }, 3000);
             }
         });
+        var isBaskinQuestCompleted = checkBaskinQuestCompletedCookie();
+        // Use the result to disable the button or perform other actions
+        if (isBaskinQuestCompleted) {
+            baskinButton.disabled = true;
+        }
     </script>
 
 
@@ -354,6 +377,27 @@
 
     <!-- Central Campus -->
     <h1>Central Campus</h1>
+    
+    <script>
+        function checkCentralQuestCompletedCookie() {
+            // Retrieve the value of the "centralQuestCompleted" cookie
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf("centralQuestCompleted=") === 0) {
+                    // The quest has been completed if the cookie value is "true"
+                    return cookie.substring("centralQuestCompleted=".length, cookie.length) === "true";
+                }
+            }
+            return false; // Default to false if the cookie is not found
+        }
+
+        function setCentralQuestCompletedCookie() {
+            // Set a cookie named "centralQuestCompleted" with a value of "true"
+            document.cookie = "centralQuestCompleted=true; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/";
+        }
+    </script>
+
     <button id="centralButton">
         Go to McHenry Library
     </button>
@@ -404,6 +448,7 @@
             centralResultMessageElementFalse.textContent = !isSame ? "Incorrect, please try again" : "";
             if (isSame) {
                 centralButton.disabled = true;
+                setCentralQuestCompletedCookie(); // Call the function to set the cookie
             }
 
             if (isSame) {
@@ -413,6 +458,11 @@
                 }, 3000);
             }
         });
+        var isCentralQuestCompleted = checkCentralQuestCompletedCookie();
+        // Use the result to disable the button or perform other actions
+        if (isCentralQuestCompleted) {
+            centralButton.disabled = true;
+        }
         </script>
 </body>
 </html>
