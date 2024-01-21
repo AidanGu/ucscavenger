@@ -290,10 +290,10 @@
         function saveProfile() {
             var enteredName = document.getElementById("name").value;
             var selectedImage = document.querySelector('.profile-image').src;
-            
-            localStorage.setItem("profileImage", selectedImage);
+                if(selectedImage.src != "lockedSLUGreal.png"){
+                    localStorage.setItem("profileImage", selectedImage);
+                }
             localStorage.setItem("profileName", enteredName);
-            
 
             displayProfile();
         }
