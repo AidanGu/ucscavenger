@@ -134,7 +134,7 @@
             return null;
         }
 
-        // Retrieve the value of the "koiQuestCompleted" cookie
+        // Koi
         const koiQuestCompletedValue = getCookie('koiQuestCompleted');
 
         // Check if the cookie exists and display its value
@@ -144,10 +144,20 @@
             document.write('Cookie "koiQuestCompleted" not found.');
         }
 
-        if (getCookie(name) == !null) print("worked!")
+        // Baskin
+
+        const baskinQuestCompletedValue = getCookie('baskinQuestCompleted');
+
+        // Check if the cookie exists and display its value
+        if (baskinQuestCompletedValue !== null) {
+            document.write('Value of "baskinQuestCompleted" cookie: ' + baskinQuestCompletedValue);
+        } else {
+            document.write('Cookie "baskinQuestCompleted" not found.');
+        }
+
     </script>
 
-    
+<!-- THIS IS FOR SHARING COOKIES THROUGHOUT PAGES -->   
 
     <header>
         <a href="index.html">Home</a>
