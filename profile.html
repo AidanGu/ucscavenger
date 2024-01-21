@@ -139,7 +139,7 @@
         <!-- Profile name input form -->
         <div id="profile-form">
             <input type="text" id="name" placeholder="Your Name">
-            <button onclick="saveName()">Save</button>
+            <button onclick="saveProfile()">Save</button>
         </div>
 
         <!-- Display saved profile name -->
@@ -186,63 +186,62 @@
             </div>
         </div>
         
-        <script>
-            // Function to save the entered name and selected image in localStorage
-            function saveProfile() {
-                var enteredName = document.getElementById("name").value;
-                var selectedImage = document.querySelector('.profile-image').src;
-        
-                localStorage.setItem("profileName", enteredName);
-                localStorage.setItem("profileImage", selectedImage);
-        
-                displayProfile();
+    <script>
+        function saveProfile() {
+            var enteredName = document.getElementById("name").value;
+            var selectedImage = document.querySelector('.profile-image').src;
+
+            localStorage.setItem("profileName", enteredName);
+            localStorage.setItem("profileImage", selectedImage);
+
+            displayProfile();
+        }
+
+        // Function to display the saved profile name and image
+        function displayProfile() {
+            var profileNameElement = document.getElementById("profile-name");
+            var profileImage = document.querySelector('.profile-image');
+
+            var savedName = localStorage.getItem("profileName");
+            var savedImage = localStorage.getItem("profileImage");
+
+            if (savedName && savedImage) {
+                profileNameElement.textContent = "Welcome, " + savedName + "!";
+                profileImage.src = savedImage;
+            } else {
+                profileNameElement.textContent = "";
             }
-        
-            // Function to display the saved profile name and image
-            function displayProfile() {
-                var profileNameElement = document.getElementById("profile-name");
+        }
+
+        // Function to get the value from localStorage
+        function getLocalStorageItem(itemName) {
+            return localStorage.getItem(itemName) || "";
+        }
+
+        // Add an event listener to each slug image
+        document.querySelectorAll('.slug img').forEach(function (image) {
+            image.addEventListener('click', function () {
+                // Get the source of the clicked image
+                var newImageSrc = this.src;
+
+                // Update the profile image source
                 var profileImage = document.querySelector('.profile-image');
-        
-                var savedName = localStorage.getItem("profileName");
-                var savedImage = localStorage.getItem("profileImage");
-        
-                if (savedName && savedImage) {
-                    profileNameElement.textContent = "Welcome, " + savedName + "!";
-                    profileImage.src = savedImage;
-                } else {
-                    profileNameElement.textContent = "";
-                }
-            }
-        
-            // Function to get the value from localStorage
-            function getLocalStorageItem(itemName) {
-                return localStorage.getItem(itemName) || "";
-            }
-        
-            // Add an event listener to each slug image
-            document.querySelectorAll('.slug img').forEach(function (image) {
-                image.addEventListener('click', function () {
-                    // Get the source of the clicked image
-                    var newImageSrc = this.src;
-        
-                    // Update the profile image source
-                    var profileImage = document.querySelector('.profile-image');
-                    profileImage.src = newImageSrc;
+                profileImage.src = newImageSrc;
 
-                    // Save the selected image in localStorage
-                    localStorage.setItem("profileImage", newImageSrc);
+                // Save the selected image in localStorage
+                localStorage.setItem("profileImage", newImageSrc);
 
-                    // Optionally, you can perform other actions
-                });
+                // Optionally, you can perform other actions
             });
+        });
 
-            // Display saved profile on page load
-            window.addEventListener("DOMContentLoaded", function () {
-                displayProfile();
+        // Display saved profile on page load
+        window.addEventListener("DOMContentLoaded", function () {
+            displayProfile();
 
-                // Set the input value from localStorage
-                document.getElementById("name").value = getLocalStorageItem("profileName");
-            });
-        </script>
+            // Set the input value from localStorage
+            document.getElementById("name").value = getLocalStorageItem("profileName");
+        });
+    </script>
 </body>
 </html>
