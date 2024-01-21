@@ -377,6 +377,27 @@
 
     <!-- Central Campus -->
     <h1>Central Campus</h1>
+    
+    <script>
+        function checkCentralQuestCompletedCookie() {
+            // Retrieve the value of the "centralQuestCompleted" cookie
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf("centralQuestCompleted=") === 0) {
+                    // The quest has been completed if the cookie value is "true"
+                    return cookie.substring("centralQuestCompleted=".length, cookie.length) === "true";
+                }
+            }
+            return false; // Default to false if the cookie is not found
+        }
+
+        function setCentralQuestCompletedCookie() {
+            // Set a cookie named "centralQuestCompleted" with a value of "true"
+            document.cookie = "centralQuestCompleted=true; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/";
+        }
+    </script>
+
     <button id="centralButton">
         Go to McHenry Library
     </button>
@@ -427,6 +448,7 @@
             centralResultMessageElementFalse.textContent = !isSame ? "Incorrect, please try again" : "";
             if (isSame) {
                 centralButton.disabled = true;
+                setCentralQuestCompletedCookie(); // Call the function to set the cookie
             }
 
             if (isSame) {
@@ -436,6 +458,11 @@
                 }, 3000);
             }
         });
+        var isCentralQuestCompleted = checkCentralQuestCompletedCookie();
+        // Use the result to disable the button or perform other actions
+        if (isCentralQuestCompleted) {
+            centralButton.disabled = true;
+        }
         </script>
 </body>
 </html>
