@@ -281,6 +281,27 @@
 
     <!-- Baskin Section -->
     <h1>Baskin Engineering</h1>
+    
+    <script>
+        function checkBaskinQuestCompletedCookie() {
+            // Retrieve the value of the "baskinQuestCompleted" cookie
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf("baskinQuestCompleted=") === 0) {
+                    // The quest has been completed if the cookie value is "true"
+                    return cookie.substring("baskinQuestCompleted=".length, cookie.length) === "true";
+                }
+            }
+            return false; // Default to false if the cookie is not found
+        }
+
+        function setBaskinQuestCompletedCookie() {
+            // Set a cookie named "baskinQuestCompleted" with a value of "true"
+            document.cookie = "baskinQuestCompleted=true; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/";
+        }
+    </script>
+
     <button id="baskinButton">
         Find the Maker's Space
     </button>
@@ -334,6 +355,7 @@
             
             if (isSame) {
                 baskinButton.disabled = true;
+                setBaskinQuestCompletedCookie(); // Call the function to set the cookie
             }
 
             if (isSame) {
@@ -343,6 +365,11 @@
                 }, 3000);
             }
         });
+        var isBaskinQuestCompleted = checkBaskinQuestCompletedCookie();
+        // Use the result to disable the button or perform other actions
+        if (isBaskinQuestCompleted) {
+            baskinButton.disabled = true;
+        }
     </script>
 
 
