@@ -56,13 +56,13 @@
             background-color: white;
             margin: 10% auto;
             padding: 20px;
-            border: 1px solid #ff0000;
+            border: 1px solid #000000;
             width: 30%;
             font-weight: bolder;
         }
         .popup-content button {
-            background-color: #04AA6D; /* Green */
-            border: none;
+            background-color: #fbd010; 
+            border: 1px solid #000000;
             color: white;
             padding: 15px 32px;
             text-align: center;
@@ -94,12 +94,12 @@
     <!-- Koi Pond Section -->
     <h1>Porter</h1>
     <button id="koiButton">
-        Visit the Koi Pond!
+        Go to the Koi Pond
     </button>
     <div id="koiPopup" class="popup">
         <div class="popup-content">
             <h1 style="color:rgb(2, 62, 228);">Koi Pond</h1>
-            <p>What's on the plaque?</p>
+            <p>What is the name of the fish memorialized on the plaquw?</p>
             <input type="text" id="koiPondUser" size="30">
             <button id="koiSubmitButton">Submit</button>
             <button id="koiClosePopup">Close</button>
@@ -131,7 +131,7 @@
 
         koiSubmitButton.addEventListener("click", function () {
             var userInputValue = koiPondUserInput.value;
-            var specificValue = "fish";
+            var specificValue = "midas";
 
             var isSame = userInputValue.toLowerCase() === specificValue.toLowerCase();
 
@@ -155,12 +155,12 @@
     <!-- Seals Sculpture Section -->
     <h1>Science Hill</h1>
     <button id="sealsButton">
-        Find the Seals Sculpture
+        Go to the Earth and Marine Sciences Building
     </button>
     <div id="sealsPopup" class="popup">
         <div class="popup-content">
             <h1 style="color:rgb(2, 62, 228);">Seals Sculpture</h1>
-            <p>What's on the plaque?</p>
+            <p>What is the capacity of the B206 Lecture Hall?</p>
             <input type="text" id="sealsUser" size="30">
             <button id="sealsSubmitButton">Submit</button>
             <button id="sealsClosePopup">Close</button>
@@ -192,7 +192,7 @@
 
         sealsSubmitButton.addEventListener("click", function () {
             var userInputValue = sealsUserInput.value;
-            var specificValue = "seals";
+            var specificValue = "268";
 
             var isSame = userInputValue.toLowerCase() === specificValue.toLowerCase();
 
@@ -270,7 +270,7 @@
                 }, 3000);
             }
         });
-        </script>
+    </script>
 
 
 
