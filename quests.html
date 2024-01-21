@@ -89,6 +89,11 @@
 
     <h1 style="text-align: center;">Quests</h1>
 
+    
+
+    <!-- Koi Pond Section -->
+    <h1>Porter</h1>
+
     <script>
         function checkQuestCompletedCookie() {
             // Retrieve the value of the "koiQuestCompleted" cookie
@@ -109,8 +114,6 @@
         }
     </script>
 
-    <!-- Koi Pond Section -->
-    <h1>Porter</h1>
     <button id="koiButton">
         Go to the Koi Pond
     </button>
@@ -179,8 +182,6 @@
             koiButton.disabled = true;
         }
     </script>
-    
-    </script>
 
 
     
@@ -188,6 +189,28 @@
 
     <!-- Seals Sculpture Section -->
     <h1>Science Hill</h1>
+    
+    <script>
+        function checkQuestCompletedCookie() {
+            // Retrieve the value of the "sealsQuestCompleted" cookie
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf("sealsQuestCompleted=") === 0) {
+                    // The quest has been completed if the cookie value is "true"
+                    return cookie.substring("sealsQuestCompleted=".length, cookie.length) === "true";
+                }
+            }
+            return false; // Default to false if the cookie is not found
+        }
+
+        function setQuestCompletedCookie() {
+            // Set a cookie named "sealsQuestCompleted" with a value of "true"
+            document.cookie = "sealsQuestCompleted=true; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/";
+        }
+    </script>
+
+    
     <button id="sealsButton">
         Go to the Earth and Marine Sciences Building
     </button>
@@ -247,6 +270,13 @@
                 }, 3000);
             }
         });
+
+        var isSealsQuestCompleted = checkQuestCompletedCookie();
+        // Use the result to disable the button or perform other actions
+        if (isSealsQuestCompleted) {
+            sealsButton.disabled = true;
+        }
+    </script>
         </script>
 
 
