@@ -164,7 +164,10 @@
             <input type="text" id="sealsUser" size="30">
             <button id="sealsSubmitButton">Submit</button>
             <button id="sealsClosePopup">Close</button>
-            <div id="sealsResultMessage" style="font-size: 24px; margin-top: 10px;"></div>
+            <div id="sealsResultMessage">
+                <span id="sealsResultMessageTrue" style="color: green;"></span>
+                <span id="sealsResultMessageFalse" style="color: red;"></span>
+            </div>
         </div>
     </div>
 
@@ -174,7 +177,8 @@
         var sealsClosePopup = document.getElementById("sealsClosePopup");
         var sealsSubmitButton = document.getElementById("sealsSubmitButton");
         var sealsUserInput = document.getElementById("sealsUser");
-        var sealsResultMessageElement = document.getElementById("sealsResultMessage");
+        var sealsResultMessageElementTrue = document.getElementById("baskinResultMessageTrue");
+        var sealsResultMessageElementFalse = document.getElementById("baskinResultMessageFalse");
 
         sealsButton.addEventListener("click", function () {
             sealsPopup.classList.add("show");
@@ -196,7 +200,8 @@
 
             var isSame = userInputValue.toLowerCase() === specificValue.toLowerCase();
 
-            sealsResultMessageElement.textContent = isSame ? "Quest Completed" : "Incorrect, please try again";
+            sealsResultMessageElementTrue.textContent = isSame ? "Quest Completed" : "";
+            sealsResultMessageElementFalse.textContent = !isSame ? "Incorrect, please try again" : "";
             if (isSame) {
                 sealsButton.disabled = true;
             }
