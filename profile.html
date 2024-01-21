@@ -31,12 +31,12 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            margin-top: -62.5px;
+            margin-top: -20px;
         }
 
         .circle-container {
-            width: 350px;
-            height: 350px;
+            width: 250px;
+            height: 250px;
             background-color: #fff;
             border-radius: 50%;
             overflow: hidden;
@@ -44,23 +44,29 @@
             align-items: center;
             justify-content: center;
             object-fit: contain;
-            margin-bottom: 10px; /* Reduce margin for spacing */
+            margin-bottom: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .profile-image {
-            width: 125%;
-            height: 125%;
+            width: 100%;
+            height: 100%;
         }
-        
+
         #profile-form {
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: -20px;
         }
 
         #name {
             margin-bottom: 10px;
+            width: 80%;
+            max-width: 300px;
+            padding: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
         }
 
         #name,
@@ -77,8 +83,8 @@
         }
 
         .slug {
-            width: 120px; /* Adjust the width */
-            height: 120px; /* Adjust the height */
+            width: 120px;
+            height: 120px;
             margin: 10px;
             background: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0);
@@ -90,11 +96,23 @@
         }
 
         .slug img {
-            cursor: pointer; /* Add cursor style for indicating clickable */
+            cursor: pointer;
             width: 100%;
             height: 100%;
             object-fit: contain;
             border: 2px solid #000000;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .circle-container {
+                width: 200px;
+                height: 200px;
+            }
+
+            .profile-image {
+                width: 125%;
+                height: 125%;
+            }
         }
     </style>
 </head>
