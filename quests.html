@@ -89,6 +89,28 @@
 
     <h1 style="text-align: center;">Quests</h1>
 
+    <script>
+        function checkQuestCompletedCookie() {
+        // Retrieve the value of the "koiQuestCompleted" cookie
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.indexOf("koiQuestCompleted=") === 0) {
+                // The quest has been completed if the cookie value is "true"
+                return cookie.substring("koiQuestCompleted=".length, cookie.length) === "true";
+            }
+        }
+        return false; // Default to false if the cookie is not found
+    }
+    </script>
+    
+    <script>
+        var isKoiQuestCompleted = checkQuestCompletedCookie();
+        // Use the result to disable the button or perform other actions
+        if (isKoiQuestCompleted) {
+            koiButton.disabled = true;
+        }
+    </script>
     
     
     <!-- Koi Pond Section -->
@@ -143,6 +165,10 @@
             koiResultMessageElementFalse.textContent = !isSame ? "Incorrect, please try again" : "";
             if (isSame) {
                 koiButton.disabled = true;
+                function setQuestCompletedCookie() {
+                    // Set a cookie named "koiQuestCompleted" with a value of "true"
+                    document.cookie = "koiQuestCompleted=true; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/";
+                }
             }
 
             if (isSame) {
