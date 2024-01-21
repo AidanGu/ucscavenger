@@ -289,17 +289,8 @@
     <script>
         function saveProfile() {
             var enteredName = document.getElementById("name").value;
-            var selectedImage;
-            if(document.querySelector('.profile-image').src == "lockedSLUGreal.png"){
-                selectedImage = "defaultSLUG.png";
-            }
-            else{
-                selectedImage = document.querySelector('.profile-image').src;
-            }
-                // if(selectedImage != "lockedSLUGreal.png"){
-                //     selectedImage = "tempSLUG.png";
-                  
-                // }
+            var selectedImage = document.querySelector('.profile-image').src
+            
             localStorage.setItem("profileImage", selectedImage);
             localStorage.setItem("profileName", enteredName);
 
@@ -333,8 +324,13 @@
                 var newImageSrc = this.src;
 
                 // Update the profile image source
-                var profileImage = document.querySelector('.profile-image');
-                profileImage.src = newImageSrc;
+                var profileImage;
+                if(document.querySelector('.profile-image').src != "lockedSLUGreal.png"){
+                    profileImage.src = newImageSrc;
+                }
+                else{
+                    profileImage.src = "defaultSLUG.png";
+                }
 
                 // Save the selected image in localStorage
                 localStorage.setItem("profileImage", newImageSrc);
