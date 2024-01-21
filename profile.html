@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    <style>
+    <style>    
         body {
             margin: 0;
             padding: 0;
@@ -25,9 +25,96 @@
             font-weight: bold;
         }
 
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin-top: 0px; /* Adjusted margin for spacing */
+        }
+
+        .circle-container {
+            width: 80vw;
+            max-width: 350px;
+            height: 80vw;
+            max-height: 350px;
+            background-color: #fff;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            object-fit: contain;
+            margin-bottom: 10px; /* Reduce margin for spacing */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: auto;
+        }
+        
+        #profile-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #name {
+            margin-bottom: 10px;
+        }
+
+        #name,
+        button {
+            font-size: 16px;
+            padding: 8px;
+            margin: 5px;
+        }
+
+        .slugs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .slug {
+            width: 120px; /* Adjust the width */
+            height: 120px; /* Adjust the height */
+            margin: 10px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+        }
+
+        .slug p {
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .slug img {
+            cursor: pointer; /* Add cursor style for indicating clickable */
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border: 2px solid #000000;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px; /* Adjusted margin for spacing */
+        }
+
+        @media screen and (max-width: 480px) {
+            .circle-container {
+                width: 80%;
+                height: 80vw;
+                max-height: initial;
+            }
+        }
     </style>
 </head>
 <body>
+
     <header>
         <a href="index.html">Home</a>
         <a href="map.html">Map</a>
@@ -39,60 +126,118 @@
     <!-- Your page content goes here -->
     <h1 style="text-align: center;">Profile</h1>
     
-    <div id="map"></div>
+    <div class="profile-container">
+        <!-- Circle container with profile image -->
+        <div class="circle-container">
+            <img class="profile-image" src="defaultSLUG.png" alt="Profile Image">
+        </div>
 
-    <!-- Profile name input form -->
-    <div id="profile-form">
-        <label for="name">Enter your name:</label>
-        <input type="text" id="name" placeholder="Your Name">
-        <button onclick="saveName()">Save</button>
-    </div>
+        <!-- Profile name input form -->
+        <div id="profile-form">
+            <input type="text" id="name" placeholder="Your Name">
+            <button onclick="saveName()">Save</button>
+        </div>
 
     <!-- Display saved profile name -->
     <div id="profile-name"></div>
     <div style="position: relative">
-        <img src="quarryPNG.png" alt="the" width="100" height="100" style="position: absolute; left: 60px; top: 300px">
+        
     </div>
-    <script>
-        // Function to save the entered name in a cookie
-        function saveName() {
-            var enteredName = document.getElementById("name").value;
-            document.cookie = "profileName=" + enteredName;
-            displayProfileName();
-        }
 
-        // Function to display the saved profile name
-        function displayProfileName() {
-            var profileNameElement = document.getElementById("profile-name");
-            var savedName = getCookie("profileName");
+    <div class="slugs">
+        <!-- slug button 1 -->
+        <div class="slug">
+            <img src="defaultSLUG.png" alt="slug 1" width="100" height="100">
+            <p>Default Slug</p>
+        </div>
 
-            if (savedName) {
-                profileNameElement.textContent = "Welcome, " + savedName + "!";
-            } else {
-                profileNameElement.textContent = "";
+        <!-- slug button 2 -->
+        <div class="slug">
+            <img src="pngbobross.png" alt="slug 2" width="100" height="100">
+            <p>Porter Slug</p>
+        </div>
+
+        <!-- slug button 3 -->
+        <div class="slug">
+            <img src="baskinPNG.png" alt="slug 3" width="100" height="100">
+            <p>Baskin Slug</p>
+        </div>
+
+        <!-- slug button 4 -->
+        <div class="slug">
+            <img src="quarryPNG.png" alt="slug 4" width="100" height="100">
+            <p>Central Campus Slug</p>
+        </div>
+
+        <!-- slug button 5 -->
+        <div class="slug">
+            <img src="tempSLUG.png" alt="slug 5" width="100" height="100">
+            <p>Science Hill Slug</p>
+        </div>
+
+        <!-- slug button 6 -->
+        <div class="slug">
+            <img src="masterSlug.png" alt="slug 6" width="100" height="100">
+            <p>Master Slug</p>
+        </div>
+        
+        <script>
+            // Function to save the entered name and selected image in localStorage
+            function saveProfile() {
+                var enteredName = document.getElementById("name").value;
+                var selectedImage = document.querySelector('.profile-image').src;
+        
+                localStorage.setItem("profileName", enteredName);
+                localStorage.setItem("profileImage", selectedImage);
+        
+                displayProfile();
             }
-        }
-
-        // Function to get the value of a cookie
-        function getCookie(cookieName) {
-            var name = cookieName + "=";
-            var decodedCookie = decodeURIComponent(document.cookie);
-            var cookieArray = decodedCookie.split(';');
-
-            for (var i = 0; i < cookieArray.length; i++) {
-                var cookie = cookieArray[i].trim();
-                if (cookie.indexOf(name) == 0) {
-                    return cookie.substring(name.length, cookie.length);
+        
+            // Function to display the saved profile name and image
+            function displayProfile() {
+                var profileNameElement = document.getElementById("profile-name");
+                var profileImage = document.querySelector('.profile-image');
+        
+                var savedName = localStorage.getItem("profileName");
+                var savedImage = localStorage.getItem("profileImage");
+        
+                if (savedName && savedImage) {
+                    profileNameElement.textContent = "Welcome, " + savedName + "!";
+                    profileImage.src = savedImage;
+                } else {
+                    profileNameElement.textContent = "";
                 }
             }
-
-            return "";
-        }
-
-        // Display saved profile name on page load
-        window.addEventListener("DOMContentLoaded", function() {
-            displayProfileName();
-        });
-    </script>
+        
+            // Function to get the value from localStorage
+            function getLocalStorageItem(itemName) {
+                return localStorage.getItem(itemName) || "";
+            }
+        
+            // Add an event listener to each slug image
+            document.querySelectorAll('.slug img').forEach(function(image) {
+                image.addEventListener('click', function() {
+                    // Get the source of the clicked image
+                    var newImageSrc = this.src;
+        
+                    // Update the profile image source
+                    var profileImage = document.querySelector('.profile-image');
+                    profileImage.src = newImageSrc;
+        
+                    // Save the selected image in localStorage
+                    localStorage.setItem("profileImage", newImageSrc);
+        
+                    // Optionally, you can perform other actions
+                });
+            });
+        
+            // Display saved profile on page load
+            window.addEventListener("DOMContentLoaded", function() {
+                displayProfile();
+                
+                // Set the input value from localStorage
+                document.getElementById("name").value = getLocalStorageItem("profileName");
+            });
+        </script>
 </body>
 </html>
