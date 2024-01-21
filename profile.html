@@ -138,43 +138,43 @@
         const koiQuestCompletedValue = getCookie('koiQuestCompleted');
 
         // Check if the cookie exists and display its value
-        if (koiQuestCompletedValue !== null) {
-            document.write('Value of "koiQuestCompleted" cookie: ' + koiQuestCompletedValue);
-        } else {
-            document.write('Cookie "koiQuestCompleted" not found.');
-        }
+        // if (koiQuestCompletedValue !== null) {
+        //     document.write('Value of "koiQuestCompleted" cookie: ' + koiQuestCompletedValue);
+        // } else {
+        //     document.write('Cookie "koiQuestCompleted" not found.');
+        // }
 
         // Baskin
 
         const baskinQuestCompletedValue = getCookie('baskinQuestCompleted');
 
         // Check if the cookie exists and display its value
-        if (baskinQuestCompletedValue !== null) {
-            document.write('Value of "baskinQuestCompleted" cookie: ' + baskinQuestCompletedValue);
-        } else {
-            document.write('Cookie "baskinQuestCompleted" not found.');
-        }
+        // if (baskinQuestCompletedValue !== null) {
+        //     document.write('Value of "baskinQuestCompleted" cookie: ' + baskinQuestCompletedValue);
+        // } else {
+        //     document.write('Cookie "baskinQuestCompleted" not found.');
+        // }
 
 
         // Central
         const centralQuestCompletedValue = getCookie('centralQuestCompleted');
 
         // Check if the cookie exists and display its value
-        if (centralQuestCompletedValue !== null) {
-            document.write('Value of "centralQuestCompleted" cookie: ' + centralQuestCompletedValue);
-        } else {
-            document.write('Cookie "centralQuestCompleted" not found.');
-        }
+        // if (centralQuestCompletedValue !== null) {
+        //     document.write('Value of "centralQuestCompleted" cookie: ' + centralQuestCompletedValue);
+        // } else {
+        //     document.write('Cookie "centralQuestCompleted" not found.');
+        // }
 
         // Seals
         const sealsQuestCompletedValue = getCookie('sealsQuestCompleted');
 
         // Check if the cookie exists and display its value
-        if (sealsQuestCompletedValue !== null) {
-            document.write('Value of "sealsQuestCompleted" cookie: ' + sealsQuestCompletedValue);
-        } else {
-            document.write('Cookie "sealsQuestCompleted" not found.');
-        }
+        // if (sealsQuestCompletedValue !== null) {
+        //     document.write('Value of "sealsQuestCompleted" cookie: ' + sealsQuestCompletedValue);
+        // } else {
+        //     document.write('Cookie "sealsQuestCompleted" not found.');
+        // }
 
         
 
@@ -221,31 +221,67 @@
 
             <!-- slug button 2 -->
             <div class="slug">
-                <img src="pngbobross.png" alt="slug 2" width="100" height="100">
+                
+                <img id = "porterSLUG" src="lockedSLUGreal.png" alt="slug 2" width="100" height="100">
+                <script>
+                    var imageElement = document.getElementById("porterSLUG");
+
+                    if(koiQuestCompletedValue != null){
+                        imageElement.src = "pngbobross.png"
+                    }
+                </script>
                 <!-- <p>Porter Slug</p> -->
             </div>
 
             <!-- slug button 3 -->
             <div class="slug">
-                <img src="baskinPNG.png" alt="slug 3" width="100" height="100">
+                <img id = "baskinSLUG" src="lockedSLUGreal.png" alt="slug 3" width="100" height="100">
+                <script>
+                    var imageElement = document.getElementById("baskinSLUG");
+
+                    if(baskinQuestCompletedValue != null){
+                        imageElement.src = "baskinPNG.png"
+                    }
+                </script>
                 <!-- <p>Baskin Slug</p> -->
             </div>
 
             <!-- slug button 4 -->
             <div class="slug">
-                <img src="quarryPNG.png" alt="slug 4" width="100" height="100">
+                <img id = "quarrySLUG" src="lockedSLUGreal.png" alt="slug 4" width="100" height="100">
+                <script>
+                    var imageElement = document.getElementById("quarrySLUG");
+
+                    if(centralQuestCompletedValue != null){
+                        imageElement.src = "quarryPNG.png"
+                    }
+                </script>
                 <!-- <p>Central Campus Slug</p> -->
             </div>
 
             <!-- slug button 5 -->
             <div class="slug">
-                <img src="scihillSLUG.png" alt="slug 5" width="100" height="100">
+                <img id = "scienceSLUG" src="lockedSLUGreal.png" alt="slug 5" width="100" height="100">
+                <script>
+                    var imageElement = document.getElementById("scienceSLUG");
+
+                    if(sealsQuestCompletedValue != null){
+                        imageElement.src = "scihillSLUG.png"
+                    }
+                </script>
                 <!-- <p>Science Hill Slug</p> -->
             </div>
 
             <!-- slug button 6 -->
             <div class="slug">
-                <img src="goldenslugREAL.png" alt="slug 6" width="100" height="100">
+                <img id = "goldenSLUG" src="lockedSLUGreal.png" alt="slug 6" width="100" height="100">
+                <script>
+                    var imageElement = document.getElementById("goldenSLUG");
+
+                    if(koiQuestCompletedValue != null && baskinQuestCompletedValue != null && sealsQuestCompletedValue != null && centralQuestCompletedValue != null){
+                        imageElement.src = "goldenslugREAL.png"
+                    }
+                </script>
                 <!-- <p>Master Slug</p> -->
             </div>
         </div>
@@ -306,5 +342,7 @@
             document.getElementById("name").value = getLocalStorageItem("profileName");
         });
     </script>
+
+    
 </body>
 </html>
