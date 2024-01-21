@@ -330,7 +330,7 @@
         document.querySelectorAll('.slug img').forEach(function (image) {
             image.addEventListener('click', function () {
                 // Get the source of the clicked image
-                if(this.src !== "lockedSLUGreal.png"){
+                if(this.src.toLowerCase() !== "lockedslugreal.png"){
                     var newImageSrc = this.src;
 
                     // Update the profile image source
