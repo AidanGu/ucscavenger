@@ -291,6 +291,7 @@
             var enteredName = document.getElementById("name").value;
             var selectedImage = document.querySelector('.profile-image').src;
                 if(selectedImage.src != "lockedSLUGreal.png"){
+                    selectedImage = "tempSLUG.png";
                     localStorage.setItem("profileImage", selectedImage);
                 }
             localStorage.setItem("profileName", enteredName);
