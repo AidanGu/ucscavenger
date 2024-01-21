@@ -325,11 +325,11 @@
 
                 // Update the profile image source
                 var profileImage;
-                if(document.querySelector('.profile-image').src != "lockedSLUGreal.png"){
-                    profileImage.src = newImageSrc;
+                if(document.querySelector('.profile-image').src == "lockedSLUGreal.png"){
+                    profileImage.src = "tempSLUG.png";
                 }
                 else{
-                    profileImage.src = "tempSLUG.png";
+                    profileImage.src = newImageSrc;
                 }
 
                 // Save the selected image in localStorage
