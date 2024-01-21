@@ -152,37 +152,37 @@
             <!-- slug button 1 -->
             <div class="slug">
                 <img src="defaultSLUG.png" alt="slug 1" width="100" height="100">
-                <p>Default Slug</p>
+                <!-- <p>Default Slug</p> -->
             </div>
 
             <!-- slug button 2 -->
             <div class="slug">
                 <img src="pngbobross.png" alt="slug 2" width="100" height="100">
-                <p>Porter Slug</p>
+                <!-- <p>Porter Slug</p> -->
             </div>
 
             <!-- slug button 3 -->
             <div class="slug">
                 <img src="baskinPNG.png" alt="slug 3" width="100" height="100">
-                <p>Baskin Slug</p>
+                <!-- <p>Baskin Slug</p> -->
             </div>
 
             <!-- slug button 4 -->
             <div class="slug">
                 <img src="quarryPNG.png" alt="slug 4" width="100" height="100">
-                <p>Central Campus Slug</p>
+                <!-- <p>Central Campus Slug</p> -->
             </div>
 
             <!-- slug button 5 -->
             <div class="slug">
                 <img src="scihillSLUG.png" alt="slug 5" width="100" height="100">
-                <p>Science Hill Slug</p>
+                <!-- <p>Science Hill Slug</p> -->
             </div>
 
             <!-- slug button 6 -->
             <div class="slug">
                 <img src="goldenslugREAL.png" alt="slug 6" width="100" height="100">
-                <p>Master Slug</p>
+                <!-- <p>Master Slug</p> -->
             </div>
         </div>
         
@@ -205,8 +205,7 @@
             var savedName = localStorage.getItem("profileName");
             var savedImage = localStorage.getItem("profileImage");
 
-            if (savedName && savedImage) {
-                profileNameElement.textContent = "Welcome, " + savedName + "!";
+            if (savedName || savedImage) {
                 profileImage.src = savedImage;
             } else {
                 profileNameElement.textContent = "";
