@@ -221,7 +221,15 @@
 
             <!-- slug button 2 -->
             <div class="slug">
-                <img src="pngbobross.png" alt="slug 2" width="100" height="100">
+                
+                <img id = "porterSLUG" src="lockedSLUGreal.png" alt="slug 2" width="100" height="100">
+                <script>
+                    var imageElement = document.getElementById("porterSLUG");
+
+                    if(koiQuestCompletedValue){
+                        imageElement.src = "pngbobross.png"
+                    }
+                </script>
                 <!-- <p>Porter Slug</p> -->
             </div>
 
