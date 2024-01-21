@@ -119,7 +119,6 @@
 
         <!-- Profile name input form -->
         <div id="profile-form">
-            <label for="name">Enter your name:</label>
             <input type="text" id="name" placeholder="Your Name">
             <button onclick="saveName()">Save</button>
         </div>
@@ -167,7 +166,7 @@
             <p>Master Slug</p>
         </div>
         
-     <script>
+    <script>
         // Function to save the entered name and selected image in a cookie
         function saveProfile() {
             var enteredName = document.getElementById("name").value;
@@ -183,6 +182,7 @@
         function displayProfile() {
             var profileNameElement = document.getElementById("profile-name");
             var profileImage = document.querySelector('.profile-image');
+            var nameInput = document.getElementById("name");
 
             var savedName = getCookie("profileName");
             var savedImage = getCookie("profileImage");
@@ -190,6 +190,7 @@
             if (savedName && savedImage) {
                 profileNameElement.textContent = "Welcome, " + savedName + "!";
                 profileImage.src = savedImage;
+                nameInput.value = savedName; // Populate input field with saved name
             } else {
                 profileNameElement.textContent = "";
             }
@@ -232,7 +233,12 @@
         window.addEventListener("DOMContentLoaded", function() {
             displayProfile();
         });
-    
+
+        // Add an event listener for real-time updating of the displayed name
+        document.getElementById("name").addEventListener("input", function() {
+            var profileNameElement = document.getElementById("profile-name");
+            profileNameElement.textContent = "Welcome, " + this.value + "!";
+        });
     </script>
 </body>
 </html>
