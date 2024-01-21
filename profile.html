@@ -48,8 +48,8 @@
         }
 
         .profile-image {
-            width: 200%;
-            height: 200%;
+            width: 100%;
+            height: 100%;
         }
         
         #profile-form {
@@ -83,21 +83,23 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0);
         }
 
-        .slug img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border: 2px solid #000000;
-        }
-
         .slug p {
             text-align: center;
             margin-top: 5px;
         }
 
+        .slug img {
+            cursor: pointer; /* Add cursor style for indicating clickable */
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border: 2px solid #000000;
+        }
     </style>
 </head>
 <body>
+
+        
     <header>
         <a href="index.html">Home</a>
         <a href="map.html">Map</a>
@@ -165,21 +167,29 @@
             <p>Master Slug</p>
         </div>
         
-    <script>
-        // Function to save the entered name in a cookie
-        function saveName() {
+     <script>
+        // Function to save the entered name and selected image in a cookie
+        function saveProfile() {
             var enteredName = document.getElementById("name").value;
+            var selectedImage = document.querySelector('.profile-image').src;
+
             document.cookie = "profileName=" + enteredName;
-            displayProfileName();
+            document.cookie = "profileImage=" + selectedImage;
+
+            displayProfile();
         }
 
-        // Function to display the saved profile name
-        function displayProfileName() {
+        // Function to display the saved profile name and image
+        function displayProfile() {
             var profileNameElement = document.getElementById("profile-name");
-            var savedName = getCookie("profileName");
+            var profileImage = document.querySelector('.profile-image');
 
-            if (savedName) {
+            var savedName = getCookie("profileName");
+            var savedImage = getCookie("profileImage");
+
+            if (savedName && savedImage) {
                 profileNameElement.textContent = "Welcome, " + savedName + "!";
+                profileImage.src = savedImage;
             } else {
                 profileNameElement.textContent = "";
             }
@@ -201,10 +211,28 @@
             return "";
         }
 
-        // Display saved profile name on page load
-        window.addEventListener("DOMContentLoaded", function() {
-            displayProfileName();
+        // Add an event listener to each slug image
+        document.querySelectorAll('.slug img').forEach(function(image) {
+            image.addEventListener('click', function() {
+                // Get the source of the clicked image
+                var newImageSrc = this.src;
+                
+                // Update the profile image source
+                var profileImage = document.querySelector('.profile-image');
+                profileImage.src = newImageSrc;
+
+                // Save the selected image in a cookie
+                document.cookie = "profileImage=" + newImageSrc;
+
+                // Optionally, you can perform other actions
+            });
         });
+
+        // Display saved profile on page load
+        window.addEventListener("DOMContentLoaded", function() {
+            displayProfile();
+        });
+    
     </script>
 </body>
 </html>
