@@ -185,13 +185,11 @@
 
 
     
-
-
     <!-- Seals Sculpture Section -->
     <h1>Science Hill</h1>
 
     <script>
-        function checkQuestCompletedCookie() {
+        function checkSealsQuestCompletedCookie() {
             // Retrieve the value of the "sealsQuestCompleted" cookie
             var cookies = document.cookie.split(';');
             for (var i = 0; i < cookies.length; i++) {
@@ -204,7 +202,7 @@
             return false; // Default to false if the cookie is not found
         }
 
-        function setQuestCompletedCookie() {
+        function setSealsQuestCompletedCookie() {
             // Set a cookie named "sealsQuestCompleted" with a value of "true"
             document.cookie = "sealsQuestCompleted=true; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/";
         }
@@ -260,28 +258,26 @@
             sealsResultMessageElementFalse.textContent = !isSame ? "Incorrect, please try again" : "";
             if (isSame) {
                 sealsButton.disabled = true;
+                setSealsQuestCompletedCookie(); // Call the function to set the cookie
             }
 
             if (isSame) {
                 setTimeout(function () {
                     sealsPopup.classList.remove("show");
-                    sealsResultMessageElementTrue.textContent = ""; // Clear the result after a delay
+                    sealsResultMessageElementTrue.textContent = "";
                     sealsResultMessageElementFalse.textContent = ""; // Clear the result after a delay
                 }, 3000);
             }
         });
 
-        var isSealsQuestCompleted = checkQuestCompletedCookie();
+        var isSealsQuestCompleted = checkSealsQuestCompletedCookie();
         // Use the result to disable the button or perform other actions
         if (isSealsQuestCompleted) {
             sealsButton.disabled = true;
         }
     </script>
+
     
-
-
-
-
 
     <!-- Baskin Section -->
     <h1>Baskin Engineering</h1>
