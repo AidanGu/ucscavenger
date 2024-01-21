@@ -95,7 +95,7 @@
     <h1>Porter</h1>
 
     <script>
-        function checkQuestCompletedCookie() {
+        function checkKoiQuestCompletedCookie() {
             // Retrieve the value of the "koiQuestCompleted" cookie
             var cookies = document.cookie.split(';');
             for (var i = 0; i < cookies.length; i++) {
@@ -108,7 +108,7 @@
             return false; // Default to false if the cookie is not found
         }
 
-        function setQuestCompletedCookie() {
+        function setKoiQuestCompletedCookie() {
             // Set a cookie named "koiQuestCompleted" with a value of "true"
             document.cookie = "koiQuestCompleted=true; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/";
         }
@@ -164,7 +164,7 @@
             koiResultMessageElementFalse.textContent = !isSame ? "Incorrect, please try again" : "";
 
             if (isSame) {
-                setQuestCompletedCookie(); // Call the function to set the cookie
+                setKoiQuestCompletedCookie(); // Call the function to set the cookie
                 koiButton.disabled = true;
             }
 
@@ -176,7 +176,7 @@
             }
         });
         
-        var isKoiQuestCompleted = checkQuestCompletedCookie();
+        var isKoiQuestCompleted = checkKoiQuestCompletedCookie();
         // Use the result to disable the button or perform other actions
         if (isKoiQuestCompleted) {
             koiButton.disabled = true;
