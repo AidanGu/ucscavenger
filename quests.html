@@ -109,14 +109,6 @@
         }
     </script>
 
-    <script>
-        var isKoiQuestCompleted = checkQuestCompletedCookie();
-        // Use the result to disable the button or perform other actions
-        if (isKoiQuestCompleted) {
-            koiButton.disabled = true;
-        }
-    </script>
-
     <!-- Koi Pond Section -->
     <h1>Porter</h1>
     <button id="koiButton">
@@ -180,6 +172,14 @@
                 }, 3000);
             }
         });
+        
+        var isKoiQuestCompleted = checkQuestCompletedCookie();
+        // Use the result to disable the button or perform other actions
+        if (isKoiQuestCompleted) {
+            koiButton.disabled = true;
+        }
+    </script>
+    
     </script>
 
 
